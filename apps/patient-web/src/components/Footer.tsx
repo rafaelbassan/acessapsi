@@ -91,7 +91,7 @@ const Footer = () => {
                       aria-label={social.label}
                       className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center hover:scale-110 hover:bg-white/20 transition-all duration-300 group border border-white/10"
                     >
-                      {React.createElement(Icon, { className: "w-5 h-5 text-neutral-300 group-hover:text-white transition-colors duration-300" })}
+                      <Icon className="w-5 h-5 text-neutral-300 group-hover:text-white transition-colors duration-300" />
                     </a>
                   );
                 })}

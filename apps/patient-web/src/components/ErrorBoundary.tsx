@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 
 interface ErrorBoundaryState {
@@ -35,12 +33,12 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             <p className="text-neutral-400 mb-8">
               Ocorreu um erro inesperado. Tente recarregar a página.
             </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            <a
+              href="/"
+              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Recarregar página
-            </button>
+              Voltar ao início
+            </a>
           </div>
         </div>
       );
