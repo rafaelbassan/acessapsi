@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "cd apps/patient-web && npm start",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
