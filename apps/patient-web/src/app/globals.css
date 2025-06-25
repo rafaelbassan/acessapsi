@@ -800,4 +800,21 @@ body {
 .hover-glass:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Missing animate-float-slow animation */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-0.5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
 } 

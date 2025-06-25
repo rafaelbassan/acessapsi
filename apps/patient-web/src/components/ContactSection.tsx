@@ -165,7 +165,7 @@ const ContactSection = () => {
               cornerRadius={24}
             >
               <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${info.gradient} flex items-center justify-center`}>
-                <info.icon className="w-8 h-8 text-white" />
+                {React.createElement(info.icon, { className: "w-8 h-8 text-white" })}
               </div>
               <h3 className="text-lg font-bold text-white mb-2">
                 {info.title}

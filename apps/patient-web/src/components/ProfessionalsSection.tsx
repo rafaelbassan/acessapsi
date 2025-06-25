@@ -137,11 +137,12 @@ const ProfessionalsSection = () => {
               variant="light"
               intensity="medium"
               interactive
-              className={`p-6 text-center hover:scale-105 transition-all duration-700 delay-${index * 100} bg-white/5 border border-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`p-6 text-center hover:scale-105 transition-all duration-700 bg-white/5 border border-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
               cornerRadius={20}
             >
               <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <stat.icon className="w-6 h-6 text-white" />
+                {React.createElement(stat.icon, { className: "w-6 h-6 text-white" })}
               </div>
               <div className="text-2xl font-bold text-white mb-1">
                 {stat.number}

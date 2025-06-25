@@ -14,7 +14,7 @@ interface LiquidGlassCardProps {
   cornerRadius?: number;
 }
 
-const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(({
+const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(function LiquidGlassCard({
   children,
   className = '',
   variant = 'light',
@@ -25,7 +25,7 @@ const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(({
   padding = '1.5rem',
   cornerRadius = 24,
   ...props
-}, ref) => {
+}, ref) {
 
   // Configurações baseadas na variante e intensidade
   const getGlassStyles = () => {

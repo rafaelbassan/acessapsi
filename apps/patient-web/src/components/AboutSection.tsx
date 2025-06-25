@@ -147,11 +147,12 @@ const AboutSection = () => {
               variant="light"
               intensity="medium"
               interactive
-              className={`p-6 text-center hover:scale-105 transition-all duration-700 delay-${index * 100} bg-white/5 border border-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`p-6 text-center hover:scale-105 transition-all duration-700 bg-white/5 border border-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
               cornerRadius={24}
             >
               <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${value.gradient} flex items-center justify-center`}>
-                <value.icon className="w-8 h-8 text-white" />
+                {React.createElement(value.icon, { className: "w-8 h-8 text-white" })}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">
                 {value.title}
@@ -222,7 +223,7 @@ const AboutSection = () => {
               >
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <achievement.icon className="w-8 h-8 text-white" />
+                    {React.createElement(achievement.icon, { className: "w-8 h-8 text-white" })}
                   </div>
                   <div className="flex-1">
                     <div className="text-3xl font-bold text-white mb-1">
