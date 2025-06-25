@@ -1,0 +1,125 @@
+# PsiClin - Public Clinic Page Implementation PRD
+
+## 1. Project Overview
+PsiClin is a specialized platform for psychology clinics that digitizes and modernizes clinic management, offering a superior experience for both professionals and patients through an integrated, intuitive, and accessible platform.
+
+## 2. Focus: Public Clinic Page
+This PRD focuses on implementing the public clinic page - the main landing page that serves as the digital showcase for psychology clinics. This is the crucial component of the MVP that will validate our hypothesis that a specialized platform with WhatsApp scheduling can significantly increase visitor-to-patient conversion.
+
+## 3. Technical Stack
+- Frontend: Next.js 13+ with App Router (patient-web)
+- Styling: Tailwind CSS
+- UI Components: Shared component library
+- Backend: Node.js with Express
+- Database: PostgreSQL with Prisma ORM
+- Architecture: Monorepo with Turborepo
+- Mobile: React Native (future integration)
+
+## 4. Key Features for Public Clinic Page
+
+### 4.1 Hero Section
+- Prominent clinic logo and name
+- Compelling headline that communicates main benefit
+- Primary CTA: "Agendar Consulta" (Schedule Appointment)
+- Secondary CTA: "Conhecer Profissionais" (Meet Professionals)
+- High-quality image conveying warmth and professionalism
+- Visible contact information
+
+### 4.2 About the Clinic Section
+- Clinic mission/vision (max 50 words)
+- Key differentiators in bullet points
+- Credibility numbers (years of experience, professionals, patients)
+- Relevant certifications/credentials
+
+### 4.3 Professionals Showcase
+- High-quality professional photos
+- Name and credentials (CRP registration)
+- Main specialties
+- Patient ratings/reviews
+- Link to complete profile
+- "View All Professionals" button
+
+### 4.4 Specialties Section
+- Visual list of specialties offered
+- Representative icons for each specialty
+- Brief description of each specialty
+- Links to more detailed information
+
+### 4.5 How It Works - Scheduling Process
+- 3-step process visualization
+- Step 1: Choose your professional
+- Step 2: Select date and time
+- Step 3: Confirm via WhatsApp
+- Clear explanation of WhatsApp integration benefit
+- "Start Now" CTA
+
+### 4.6 Practical Information
+- Complete address with integrated map
+- Detailed business hours
+- Multiple contact methods
+- Parking and public transportation info
+- Google Maps integration
+
+### 4.7 Testimonials and Reviews
+- 3-5 real and relevant testimonials
+- Star ratings
+- Patient names (initials for privacy)
+- Focus on scheduling ease
+- Link to view more reviews
+
+### 4.8 Call-to-Action Footer
+- Final conversion opportunity
+- "Schedule My Appointment Now" button
+- Contact information
+- Social media links
+
+## 5. Success Criteria
+- Conversion Rate: 15% visitors → scheduling attempts
+- Scheduling Time: < 3 minutes from landing page to WhatsApp
+- Page Load Speed: < 3 seconds
+- Mobile Responsivity: Perfect across all devices
+- User Satisfaction: NPS > 8.0
+
+## 6. Implementation Priorities
+1. [P0] Basic page structure and navigation
+2. [P0] Hero section with CTAs
+3. [P0] Professionals showcase with dynamic data
+4. [P0] WhatsApp scheduling integration
+5. [P1] About section and specialties
+6. [P1] Testimonials and reviews
+7. [P1] Contact information and map
+8. [P2] SEO optimization
+9. [P2] Analytics integration
+10. [P2] Performance optimization
+
+## 7. Technical Requirements
+- PWA-ready (Service Worker, Manifest)
+- SEO optimized (Meta tags, Schema markup)
+- Responsive design (Mobile-first approach)
+- Performance optimized (Image optimization, Code splitting)
+- Accessibility compliant (WCAG 2.1 AA)
+- LGPD compliant (Privacy policy, Cookie consent)
+
+## 8. Design System
+- Colors: Primary #2563EB, Secondary #10B981, Accent #F59E0B
+- Typography: Inter font family with defined scales
+- Spacing: 4px base unit system
+- Components: Reusable UI component library
+- Layout: CSS Grid and Flexbox based responsive layouts
+
+## 9. Data Requirements
+- Clinic information (name, logo, mission, contact)
+- Professional profiles (photo, name, CRP, specialties, ratings)
+- Specialties list with descriptions
+- Business hours and location data
+- Patient testimonials and ratings
+- WhatsApp contact integration
+
+## 10. Integration Points
+- WhatsApp Business API for scheduling
+- Google Maps for location display
+- Analytics tracking (Google Analytics, Hotjar)
+- Performance monitoring (Vercel Analytics)
+- Backend API for dynamic content
+
+This public clinic page will serve as the foundation for the entire PsiClin platform, focusing on converting visitors into scheduled patients through a professional, trustworthy, and user-friendly experience. 

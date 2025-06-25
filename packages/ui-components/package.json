@@ -1,0 +1,27 @@
+{
+  "name": "@psiclin/ui-components",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "@psiclin/shared-types": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.0",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "rimraf": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  }
+} 
