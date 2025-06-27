@@ -46,7 +46,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative py-20 bg-gradient-to-br from-neutral-900 via-neutral-800 to-blue-900 overflow-hidden">
+    <footer className="relative py-20 bg-section overflow-hidden">
       
       {/* Floating Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

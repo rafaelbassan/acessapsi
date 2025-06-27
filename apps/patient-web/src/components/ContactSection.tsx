@@ -115,7 +115,7 @@ const ContactSection = () => {
     <section 
       id="contact" 
       ref={sectionRef} 
-      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-green-900"
+      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-section"
     >
       
       {/* Background Elements */}

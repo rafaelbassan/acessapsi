@@ -41,20 +41,20 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      <nav className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${
         isScrolled 
-          ? 'backdrop-blur-xl bg-neutral-900/80 border-b border-white/10' 
-          : 'backdrop-blur-sm bg-neutral-900/60'
+          ? 'backdrop-blur-xl bg-nav-scrolled border-b border-white/10 shadow-2xl shadow-slate-900/20' 
+          : 'backdrop-blur-sm bg-nav'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
             
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <div className="flex items-center space-x-3 group cursor-pointer">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300">
                 <Heart className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                 PsiClin
               </span>
             </div>
@@ -65,29 +65,29 @@ const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-neutral-300 hover:text-white transition-all duration-300 font-medium relative group"
+                  className="text-slate-300 hover:text-white transition-all duration-300 font-medium relative group px-3 py-2 rounded-lg hover:bg-white/5"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 group-hover:w-full transition-all duration-300"></span>
                 </button>
               ))}
             </div>
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-4">
-              <button 
-                onClick={() => scrollToSection('#contact')}
-                className="text-neutral-300 hover:text-white transition-colors duration-300 flex items-center space-x-2"
+              <a 
+                href="tel:+5511999998888"
+                className="text-slate-300 hover:text-white transition-all duration-300 flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/10 group"
               >
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">(11) 9999-8888</span>
-              </button>
+                <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="text-sm font-medium">(11) 9999-8888</span>
+              </a>
               
               <LiquidGlassButton 
                 variant="primary" 
                 size="sm"
                 onClick={() => scrollToSection('#contact')}
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Agendar</span>
@@ -110,7 +110,7 @@ const Navigation = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
+      <div className={`fixed inset-0 z-[9998] md:hidden transition-all duration-300 ${
         isMobileMenuOpen 
           ? 'opacity-100 pointer-events-auto' 
           : 'opacity-0 pointer-events-none'
@@ -118,43 +118,40 @@ const Navigation = () => {
         
         {/* Backdrop */}
         <div 
-          className="absolute inset-0 bg-neutral-900/80 backdrop-blur-sm"
+          className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
         
         {/* Menu Content */}
-        <div className={`absolute top-16 left-4 right-4 bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 transition-all duration-300 ${
+        <div className={`absolute top-20 left-4 right-4 bg-nav-scrolled backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
           isMobileMenuOpen 
             ? 'translate-y-0 scale-100' 
             : '-translate-y-4 scale-95'
         }`}>
           
           {/* Navigation Items */}
-          <div className="space-y-4 mb-6">
+          <div className="space-y-3 mb-6">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="w-full text-left py-3 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-between group"
+                className="w-full text-left py-4 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-between group"
               >
-                <span className="font-medium">{item.label}</span>
-                <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                <span className="font-medium text-lg">{item.label}</span>
+                <ArrowRight className="w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
               </button>
             ))}
           </div>
 
           {/* Mobile CTA */}
           <div className="space-y-3 pt-4 border-t border-white/10">
-            <button 
-              onClick={() => {
-                scrollToSection('#contact');
-                window.open('tel:+5511999998888');
-              }}
-              className="w-full py-3 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2"
+            <a 
+              href="tel:+5511999998888"
+              className="w-full py-4 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2 group"
             >
-              <Phone className="w-4 h-4" />
-              <span>(11) 9999-8888</span>
-            </button>
+              <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              <span className="font-medium">(11) 9999-8888</span>
+            </a>
             
             <LiquidGlassButton 
               variant="primary" 
