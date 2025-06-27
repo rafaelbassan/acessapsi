@@ -21,22 +21,10 @@ export default function HomePage() {
 
       {/* Main Content */}
       <div className="relative z-10">
-        <section id="home" className="pt-0">
-          <HeroSection />
-        </section>
-        
-        <section id="about" className="py-16 md:py-24">
-          <AboutSection />
-        </section>
-        
-        <section id="professionals" className="py-16 md:py-24">
-          <ProfessionalsSection />
-        </section>
-        
-        <section id="contact" className="py-16 md:py-24">
-          <ContactSection />
-        </section>
-        
+        <HeroSection />
+        <AboutSection />
+        <ProfessionalsSection />
+        <ContactSection />
         <Footer />
       </div>
       

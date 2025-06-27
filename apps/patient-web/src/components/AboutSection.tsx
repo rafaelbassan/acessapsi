@@ -126,21 +126,21 @@ const AboutSection = () => {
             </span>
           </LiquidGlassCard>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Transformamos vidas através do
             <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               cuidado psicológico especializado
             </span>
           </h2>
           
-          <p className="text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
             Nossa missão é oferecer tratamento psicológico de excelência, 
             combinando expertise profissional com acolhimento humano em um ambiente seguro e moderno.
           </p>
         </div>
 
         {/* Values Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
           {values.map((value, index) => (
             <LiquidGlassCard
               key={index}
@@ -165,7 +165,7 @@ const AboutSection = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-16 sm:mb-20">
           
           {/* Left Column - Story */}
           <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
@@ -183,12 +183,12 @@ const AboutSection = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   Pioneiros em Saúde Mental Digital
                 </h3>
                 
                 <p className="text-neutral-300 leading-relaxed">
-                  Fundada em 2019, a PsiClin nasceu da visão de democratizar o acesso à 
+                  Fundada em 2019, o Portal Psi nasceu da visão de democratizar o acesso à 
                   saúde mental de qualidade. Combinamos a tradição da psicologia clínica 
                   com inovação tecnológica para criar experiências terapêuticas transformadoras.
                 </p>
@@ -275,7 +275,7 @@ const AboutSection = () => {
             className="max-w-2xl mx-auto p-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30"
             cornerRadius={32}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
               Pronto para começar sua jornada?
             </h3>
             <p className="text-neutral-300 mb-6">

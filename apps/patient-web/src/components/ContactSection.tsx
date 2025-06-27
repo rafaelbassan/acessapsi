@@ -140,21 +140,21 @@ const ContactSection = () => {
             </span>
           </LiquidGlassCard>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Estamos aqui para
             <span className="block bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
               ajudar você
             </span>
           </h2>
           
-          <p className="text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
             Dê o primeiro passo rumo ao seu bem-estar. Nossa equipe está pronta para 
             acolhê-lo e oferecer o suporte que você precisa.
           </p>
         </div>
 
         {/* Contact Info Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {contactInfo.map((info, index) => (
             <LiquidGlassCard
               key={index}
@@ -181,7 +181,7 @@ const ContactSection = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
           
           {/* Contact Form */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
@@ -199,7 +199,7 @@ const ContactSection = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
                   Vamos conversar sobre seu bem-estar?
                 </h3>
 
@@ -397,7 +397,7 @@ const ContactSection = () => {
                 ))}
               </div>
               <p className="text-neutral-400 text-sm mt-4">
-                Acompanhe dicas de saúde mental e novidades da PsiClin
+                                    Acompanhe dicas de saúde mental e novidades do Portal Psi
               </p>
             </LiquidGlassCard>
           </div>

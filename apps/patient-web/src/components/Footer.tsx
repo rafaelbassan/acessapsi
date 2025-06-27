@@ -58,7 +58,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 mb-8 lg:mb-16">
           
           {/* Brand Section */}
           <div className="lg:col-span-1">
@@ -72,7 +72,7 @@ const Footer = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">PsiClin</h3>
+                <h3 className="text-2xl font-bold text-white">Portal Psi</h3>
               </div>
               
               <p className="text-neutral-300 mb-6 leading-relaxed">
@@ -247,7 +247,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-6 text-neutral-400">
-              <p>&copy; {currentYear} PsiClin. Todos os direitos reservados.</p>
+                                <p>&copy; {currentYear} Portal Psi. Todos os direitos reservados.</p>
             </div>
             
             <div className="flex items-center gap-6">

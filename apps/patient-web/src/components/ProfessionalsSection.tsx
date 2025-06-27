@@ -116,14 +116,14 @@ const ProfessionalsSection = () => {
             </span>
           </LiquidGlassCard>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Profissionais dedicados ao
             <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               seu bem-estar
             </span>
           </h2>
           
-          <p className="text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
             Nossa equipe multidisciplinar combina experiência clínica, formação acadêmica de 
             excelência e dedicação ao cuidado humanizado para oferecer o melhor tratamento.
           </p>
@@ -155,7 +155,7 @@ const ProfessionalsSection = () => {
         </div>
 
         {/* Professional Selection */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-8 lg:mb-12">
           
           {/* Professional Cards */}
           <div className="lg:col-span-1 space-y-4">
@@ -215,7 +215,7 @@ const ProfessionalsSection = () => {
                 {/* Professional Header */}
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="text-3xl font-bold text-white mb-2">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                       {professionals[selectedProfessional].name}
                     </h3>
                     <p className="text-blue-400 text-lg mb-4">
@@ -239,7 +239,7 @@ const ProfessionalsSection = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-neutral-300 text-lg leading-relaxed">
+                <p className="text-neutral-300 text-base sm:text-lg leading-relaxed">
                   {professionals[selectedProfessional].description}
                 </p>
 
@@ -316,7 +316,7 @@ const ProfessionalsSection = () => {
             className="max-w-2xl mx-auto p-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30"
             cornerRadius={32}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
               Encontre o profissional ideal para você
             </h3>
             <p className="text-neutral-300 mb-6">
