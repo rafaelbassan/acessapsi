@@ -19,6 +19,7 @@ import {
   Brain,
   Smile
 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,9 +50,11 @@ export default function HeroSection() {
         
         {/* Decorative background image */}
         <div className="absolute top-1/4 right-1/4 lg:right-1/5 w-32 h-32 lg:w-48 lg:h-48 opacity-5 rotate-12">
-          <img 
+          <Image 
             src="/images/decorator.png" 
             alt="" 
+            width={192}
+            height={192}
             className="w-full h-full object-contain filter blur-sm"
           />
         </div>
@@ -67,10 +70,13 @@ export default function HeroSection() {
             <div className="flex items-center space-x-4">
               <div className="relative">
                 <div className="p-4 xl:p-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl shadow-blue-500/25 overflow-hidden">
-                  <img 
-                    src="/images/logo_psi.png" 
-                    alt="Portal Psi Logo" 
+                  <Image
+                    src="/images/logo_psi.png"
+                    alt="Portal Psi Logo"
+                    width={32}
+                    height={32}
                     className="w-7 h-7 xl:w-8 xl:h-8 object-contain"
+                    priority
                   />
                 </div>
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-20 blur-lg animate-pulse"></div>

@@ -10,6 +10,7 @@ import {
   Phone,
   ArrowRight
 } from 'lucide-react';
+import Image from 'next/image';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,10 +53,13 @@ const Navigation = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3 group cursor-pointer">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/40 transition-all duration-300 overflow-hidden">
-                <img 
-                  src="/images/logo_psi.png" 
-                  alt="Portal Psi Logo" 
+                <Image 
+                  src="/images/logo_psi.png"
+                  alt="Portal Psi Logo"
+                  width={40}
+                  height={40}
                   className="w-full h-full object-contain"
+                  priority
                 />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
