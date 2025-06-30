@@ -41,7 +41,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
-    "turbo": "^1.10.0",
+    "turbo": "1.13.4",
     "typescript": "^5.1.0"
   },
   "engines": {
@@ -102,5 +102,9 @@
         ]
       ]
     }
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "1.2.11",
+    "jwt-decode": "4.0.0"
   }
-} 
+}

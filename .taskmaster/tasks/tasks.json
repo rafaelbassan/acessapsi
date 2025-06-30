@@ -25,10 +25,10 @@
       },
       {
         "id": 3,
-        "title": "Design PostgreSQL Schema and Implement Initial Migrations",
-        "description": "Define and implement the initial PostgreSQL database schema for core entities (Clínicas, Profissionais, Pacientes, Consultas, ProfessionalAvailability) using a migration tool (e.g., node-pg-migrate, Prisma Migrate) within the `packages/database` workspace. Include fields for soft delete and audit trails.",
-        "details": "// In packages/database:\n// 1. Set up a migration tool.\n// 2. Define schemas with appropriate fields, types, relationships (FKs), and constraints for: Clinics, Professionals, Patients, Appointments, ProfessionalAvailability.\n// 3. Ensure all tables include `created_at`, `updated_at` (TIMESTAMPTZ with default NOW()), and `deleted_at` (TIMESTAMPTZ NULL for soft delete).\n// 4. Create initial migration files and scripts to apply/revert migrations.",
-        "testStrategy": "Run migrations against a local/dev PostgreSQL instance. Verify table structures, relationships, data types, and constraints using a DB client (e.g., pgAdmin, DBeaver). Test rollback of migrations.",
+        "title": "Design Firebase Firestore Schema and Setup Database Structure",
+        "description": "Define and implement the initial Firebase Firestore database structure for core entities (Clínicas, Profissionais, Pacientes, Consultas, ProfessionalAvailability) within the `packages/database` workspace. Configure collections, indexes, security rules and include fields for soft delete and audit trails.",
+        "details": "// In packages/database (Firebase Implementation):\n// 1. Install Firebase Admin SDK and configure service account\n// 2. Define Firestore collections with TypeScript interfaces for: Clinics, Professionals, Patients, Appointments, ProfessionalAvailability\n// 3. Ensure all documents include `createdAt`, `updatedAt` (Timestamp), and `deletedAt` (Timestamp | null for soft delete)\n// 4. Configure Security Rules for proper access control\n// 5. Create composite indexes for complex queries (professional+date, clinic+specialty)\n// 6. Setup collection/subcollection structure for optimal querying\n// 7. Implement helper functions for CRUD operations with proper error handling\n\n<info added on 2025-06-30T18:35:43.890Z>\n🔄 ARCHITECTURE CHANGE: PostgreSQL → Firebase\n\n✅ NEW IMPLEMENTATION:\n- Firebase Firestore as primary NoSQL database\n- Firebase Admin SDK integration in Node.js backend\n- Collections: clinics, professionals, patients, appointments, availability\n- TypeScript interfaces for type safety\n- Audit fields: createdAt, updatedAt, deletedAt (soft delete)\n- Subcollections for related data optimization\n- Security Rules for access control\n- Composite indexes for complex queries\n- Real-time updates capability\n- Native Firebase backup features\n\n💰 COST BENEFITS:\n- Generous free tier: 1GB storage + 50k reads + 20k writes/day\n- No server maintenance costs\n- Auto-scaling without additional charges\n- Integrated with other Firebase services\n</info added on 2025-06-30T18:35:43.890Z>",
+        "testStrategy": "Setup Firebase project with Firestore database. Test collections creation, document structure, and field validation using Firebase Console. Verify Security Rules with different user roles. Test composite indexes performance with sample data. Validate CRUD operations through Firebase Admin SDK.",
         "priority": "high",
         "dependencies": [
           1
@@ -40,7 +40,7 @@
         "id": 4,
         "title": "Implement Backend Authentication (JWT) and Role-Based Authorization",
         "description": "Develop JWT-based authentication and role-based authorization (Admin, Profissional, Paciente) for the Node.js backend API (Express/Fastify). This includes user registration/login endpoints and middleware for protecting routes.",
-        "details": "// In apps/backend (Express/Fastify):\n// 1. Install `jsonwebtoken` and `bcrypt`.\n// 2. Create User model/table (e.g., `users` with `email`, `password_hash`, `role`, `profile_id` linking to Professionals/Patients).\n// 3. Implement `/auth/register` (for admins or seed script) and `/auth/login` endpoints.\n// 4. Login generates JWT (containing userId, role, exp) stored securely by client.\n// 5. Create authentication middleware to verify JWT and attach user to request.\n// 6. Create authorization middleware to check `req.user.role` against required roles for routes.",
+        "details": "// In apps/backend (Express/Fastify):\n// 1. Install `jsonwebtoken` and `bcrypt`.\n// 2. Create User model/table (e.g., `users` with `email`, `password_hash`, `role`, `profile_id` linking to Professionals/Patients).\n// 3. Implement `/auth/register` (for admins or seed script) and `/auth/login` endpoints.\n// 4. Login generates JWT (containing userId, role, exp) stored securely by client.\n// 5. Create authentication middleware to verify JWT and attach user to request.\n// 6. Create authorization middleware to check `req.user.role` against required roles for routes.\n<info added on 2025-06-30T18:37:28.102Z>\nATUALIZAÇÃO POR MUDANÇA DE ARQUITETURA: PostgreSQL → Firebase\n\nALTERNATIVA RECOMENDADA: Considerar Firebase Authentication\n- Integração nativa com Firestore\n- Roles customizados via Custom Claims\n- Providers múltiplos (email, Google, etc.)\n- SDKs prontos para web e mobile\n- Gerenciamento de usuários via console\n\nSE MANTER JWT CUSTOMIZADO:\n- User collection no Firestore: users/{uid}\n- Campos: email, passwordHash, role, profileId, createdAt, updatedAt\n- Usar Firebase Admin SDK para CRUD de usuários\n- JWT contém uid, role, exp\n- Middleware autentica com Firestore queries\n\nDECISÃO NECESSÁRIA:\n1. Firebase Auth (recomendado) - mais simples, seguro, integrado\n2. JWT customizado - mais controle, compatível com task atual\n</info added on 2025-06-30T18:37:28.102Z>\n<info added on 2025-06-30T18:58:57.621Z>\n🚀 DECISÃO TOMADA: Usar Firebase Authentication como backend auth principal!\n\nNOVA IMPLEMENTAÇÃO:\n- Utilizar Firebase Auth para cadastro, login e autenticação de usuários (Admin, Profissional, Paciente)\n- Gerenciar roles via Custom Claims do Firebase Auth (setados pelo backend via Admin SDK)\n- Backend valida tokens de acesso usando Firebase Admin SDK (verifica assinatura, expiração, etc)\n- Endpoints protegidos checam claims de role para autorização\n- Cadastro/login via endpoints que usam Firebase Auth (email/senha, Google, etc)\n- Não é necessário gerenciar hashes de senha manualmente nem JWT customizado\n- Possível adicionar lógica extra de autorização no backend se necessário\n\nVANTAGENS:\n✅ Segurança robusta (Google)\n✅ Integração nativa com Firestore e FCM\n✅ Menos código e menos bugs\n✅ Suporte a múltiplos providers (Google, Apple, etc)\n✅ Gerenciamento de usuários via console\n\nPRÓXIMOS PASSOS:\n1. Configurar Firebase Auth no projeto Firebase\n2. Integrar Firebase Admin SDK no backend\n3. Implementar endpoints de cadastro/login usando Firebase Auth\n4. Implementar middleware de autenticação e autorização baseado em Custom Claims\n5. Testar fluxo completo (cadastro, login, acesso protegido, roles)\n</info added on 2025-06-30T18:58:57.621Z>",
         "testStrategy": "Unit tests for JWT generation/validation, password hashing. API endpoint tests for `/auth/login`, `/auth/register`. Test protected routes with valid/invalid/missing tokens and different user roles to verify authorization logic.",
         "priority": "high",
         "dependencies": [
@@ -54,7 +54,7 @@
         "id": 5,
         "title": "Develop Backend CRUD APIs for Clinics, Professionals, and Patients",
         "description": "Implement RESTful/GraphQL API endpoints for Create, Read, Update, and Delete (soft delete) operations for Clínicas, Profissionais (including availability), and Pacientes. Include input validation and ensure audit trails.",
-        "details": "// In apps/backend:\n// For each entity (Clinics, Professionals, Patients):\n// 1. Define routes (e.g., POST /professionals, GET /professionals, GET /professionals/:id, PUT /professionals/:id, DELETE /professionals/:id).\n// 2. Implement controllers/handlers with input validation (e.g., using Zod).\n// 3. Interact with PostgreSQL, ensuring soft deletes (set `deleted_at`) and filtering out deleted records by default.\n// 4. Manage `created_at`, `updated_at` timestamps.\n// 5. For Professionals, include endpoints to manage their availability (e.g., POST /professionals/:id/availability).",
+        "details": "// In apps/backend:\n// For each entity (Clinics, Professionals, Patients):\n// 1. Define routes (e.g., POST /professionals, GET /professionals, GET /professionals/:id, PUT /professionals/:id, DELETE /professionals/:id).\n// 2. Implement controllers/handlers with input validation (e.g., using Zod).\n// 3. Interact with PostgreSQL, ensuring soft deletes (set `deleted_at`) and filtering out deleted records by default.\n// 4. Manage `created_at`, `updated_at` timestamps.\n// 5. For Professionals, include endpoints to manage their availability (e.g., POST /professionals/:id/availability).\n<info added on 2025-06-30T18:38:08.676Z>\nARCHITECTURE CHANGE UPDATE: PostgreSQL → Firebase Firestore\n\nNew Implementation with Firestore:\n- Collections: clinics/{id}, professionals/{id}, patients/{id}\n- Use Firebase Admin SDK for CRUD operations\n- Soft delete: use a `deletedAt` timestamp field\n- Audit trails: `createdAt` and `updatedAt` will be handled automatically\n- Queries should be optimized with composite indexes\n\nTechnical Adaptations:\n- Replace SQL queries with Firestore queries\n- Use `where()`, `orderBy()`, and `limit()` for filtering\n- Manage references between documents via a `referenceId` field\n- Zod validation for input validation is to be maintained\n- Implement error handling specific to Firestore\n\nCollection Structures:\n- clinics: {name, address, phone, email, settings, ...timestamps}\n- professionals: {clinicId, name, crp, specialties, pricing, ...timestamps}\n- patients: {name, phone, email, address, notes, ...timestamps}\n- availability subcollection: professionals/{id}/availability/{dayOfWeek}\n\nAdvantages:\n- Real-time updates for the admin dashboard\n- Automatic scalability\n- No need for an ORM or database migrations\n- Native backup functionality\n</info added on 2025-06-30T18:38:08.676Z>",
         "testStrategy": "API integration tests for all CRUD operations on each entity. Verify correct data storage/retrieval, input validation errors, soft delete functionality, and role-based access controls.",
         "priority": "high",
         "dependencies": [
@@ -67,7 +67,7 @@
         "id": 6,
         "title": "Develop Backend CRUD APIs for Appointments (Consultas)",
         "description": "Implement API endpoints for managing appointments (Consultas), including creation, retrieval, updates (status, time), and cancellation. This involves checking professional availability and preventing conflicts.",
-        "details": "// In apps/backend:\n// 1. Define routes for appointments (e.g., POST /appointments, GET /appointments, PUT /appointments/:id, DELETE /appointments/:id).\n// 2. Implement controllers/handlers with input validation.\n// 3. Business logic: Check professional availability (using ProfessionalAvailability data) before booking, prevent double bookings, handle status transitions (scheduled, confirmed, cancelled, completed).\n// 4. Interact with PostgreSQL, linking to Patients and Professionals.",
+        "details": "// In apps/backend:\n// 1. Define routes for appointments (e.g., POST /appointments, GET /appointments, PUT /appointments/:id, DELETE /appointments/:id).\n// 2. Implement controllers/handlers with input validation.\n// 3. Business logic: Check professional availability (using ProfessionalAvailability data) before booking, prevent double bookings, handle status transitions (scheduled, confirmed, cancelled, completed).\n// 4. Interact with PostgreSQL, linking to Patients and Professionals.\n<info added on 2025-06-30T18:38:39.959Z>\nATUALIZAÇÃO POR MUDANÇA DE ARQUITETURA: PostgreSQL → Firebase Firestore\n\nNOVA IMPLEMENTAÇÃO COM FIRESTORE:\n- Collection: appointments/{id}\n- Usar Firebase Admin SDK para operações CRUD\n- References: patientId, professionalId (string IDs)\n- Status: 'scheduled', 'confirmed', 'cancelled', 'completed'\n- Campos de auditoria: createdAt, updatedAt, deletedAt\n\nBUSINESS LOGIC FIRESTORE:\n- Query availability: professionals/{id}/availability/{dayOfWeek}\n- Conflict checking: query appointments por professionalId + datetime\n- Batch operations para operações atômicas\n- Composite indexes: [professionalId, datetime], [patientId, datetime]\n\nESTRUTURA DOCUMENT:\nappointments/{id}: {\n  patientId: string,\n  professionalId: string,\n  datetime: Timestamp,\n  status: 'scheduled' | 'confirmed' | 'cancelled' | 'completed',\n  notes: string,\n  duration: number (minutes),\n  createdAt: Timestamp,\n  updatedAt: Timestamp,\n  deletedAt: Timestamp | null\n}\n\nVANTAGENS:\n- Real-time updates para agenda\n- Queries complexas com índices\n- Transações para evitar double booking\n</info added on 2025-06-30T18:38:39.959Z>",
         "testStrategy": "API integration tests for booking (success/failure on conflict), updating status/time, cancelling, and retrieving appointments by various filters (patient, professional, date).",
         "priority": "high",
         "dependencies": [
@@ -133,7 +133,7 @@
         "id": 11,
         "title": "Implement Content Sections for Public Website",
         "description": "Develop the remaining content sections for the `web-public` site: Sobre a Clínica, Profissionais (Destaque), Especialidades Oferecidas, Como Funciona o Agendamento, Informações Práticas (with map integration), Depoimentos. Fetch dynamic data where applicable.",
-        "details": "// In apps/web-public:\n// Create React components for each section.\n// Populate with static content or fetch dynamic data from backend APIs (e.g., professionals list from Task 5).\n// - Sobre a Clínica: Mission/vision, differentiators, credibility numbers.\n// - Profissionais (Destaque): Photos, names, CRPs, specialities, ratings, links.\n// - Especialidades Oferecidas: Visual list with icons, descriptions.\n// - Como Funciona o Agendamento: 3-step process, highlight WhatsApp.\n// - Informações Práticas: Address, Google Maps integration, hours, contact.\n// - Depoimentos: 3-5 static testimonials.\n// Ensure responsiveness and accessibility (WCAG 2.1 AA).",
+        "details": "// In apps/web-public:\n// Create React components for each section.\n// Populate with static content or fetch dynamic data from backend APIs (e.g., professionals list from Task 5).\n// - Sobre a Clínica: Mission/vision, differentiators, credibility numbers.\n// - Profissionais (Destaque): Photos, names, CRPs, specialities, ratings, links.\n// - Especialidades Oferecidas: Visual list with icons, descriptions.\n// - Como Funciona o Agendamento: 3-step process, highlight WhatsApp.\n// - Informações Práticas: Address, Google Maps integration, hours, contact.\n// - Depoimentos: 3-5 static testimonials.\n// Ensure responsiveness and accessibility (WCAG 2.1 AA).\n<info added on 2025-06-30T18:33:05.554Z>\nPROGRESS UPDATE:\nCompleted Sections: AboutSection.tsx (Sobre a Clínica), Footer.tsx (with contact info), Navigation.tsx (with responsive menu).\nSections that exist but need a completeness check: ProfessionalsSection.tsx, ContactSection.tsx.\nSections that still need to be verified or completed: Como Funciona o Agendamento, Depoimentos/Testimonials, Especialidades Oferecidas.\nTechnical Status: Components are located in `apps/patient-web/src/components/`, integration into the main `page.tsx` is implemented, and responsiveness with Tailwind CSS is working.\n</info added on 2025-06-30T18:33:05.554Z>",
         "testStrategy": "Visual testing of each section on different devices. Content verification. Functional testing of links, map integration. Accessibility audit (e.g., Axe tools).",
         "priority": "medium",
         "dependencies": [
@@ -157,7 +157,7 @@
             "description": "Develop the 'Profissionais (Destaque)' React component. This section will showcase featured professionals using mock data for their photos, names, CRPs, specialities, ratings, and profile links.",
             "dependencies": [],
             "details": "Create `ProfissionaisDestaqueSection.tsx`. Design and implement a layout (e.g., a responsive grid of cards or a carousel) to display featured professionals. Populate with mock data for 3-4 professionals, including placeholder images, fictional names, example CRPs, lists of specialities, sample ratings (e.g., 4.5/5 stars), and placeholder links for 'View Profile' buttons. Style using Tailwind CSS, follow the existing design system, ensure responsiveness, and meet WCAG 2.1 AA accessibility standards.",
-            "status": "pending",
+            "status": "in-progress",
             "testStrategy": "Test layout and content display on multiple devices/screen sizes. If a carousel is used, test its navigation and responsiveness. Verify all mock data fields are correctly displayed for each professional card. Conduct accessibility checks, paying attention to image alt texts and interactive element usability."
           },
           {
@@ -184,7 +184,7 @@
             "description": "Develop the 'Informações Práticas' React component. This section will provide mock practical information (address, contact, hours) and include a placeholder for Google Maps integration.",
             "dependencies": [],
             "details": "Create `InformacoesPraticasSection.tsx`. Populate with mock static content for the clinic's physical address, phone number, email address, and opening hours. Integrate a clear placeholder for the Google Maps view (e.g., a static image of a map, or a styled `div` with text like 'Map will be displayed here'). Style the section using Tailwind CSS, ensure it aligns with the design system, is responsive on all devices, and complies with WCAG 2.1 AA standards.",
-            "status": "pending",
+            "status": "in-progress",
             "testStrategy": "Verify correct display of mock address, contact details, and opening hours on different screen sizes. Check the appearance and responsiveness of the map placeholder. Ensure all text content is legible and accessible. Perform WCAG 2.1 AA compliance checks."
           }
         ]
@@ -193,15 +193,80 @@
         "id": 12,
         "title": "Develop Admin Panel: Layout, Auth, and Professionals Management",
         "description": "Initialize `web-admin` Next.js app. Implement admin layout, login page integrating with backend authentication (Task 4), and the 'Gestão de Profissionais' module (CRUD UI connected to APIs from Task 5).",
-        "details": "// In apps/web-admin (Next.js 13+ App Router):\n// 1. Set up Next.js project.\n// 2. Implement login page calling backend `/auth/login`, storing JWT.\n// 3. Create protected layout for admin pages (sidebar, header), redirecting if not authenticated.\n// 4. 'Gestão de Profissionais' module: List professionals; forms for create/edit (name, CRP, specialities, availability, values, photo upload, bio); API calls to backend. Handle image uploads.",
+        "details": "// In apps/web-admin (Next.js 13+ App Router):\n// 1. Set up Next.js project.\n// 2. Implement login page calling backend `/auth/login`, storing JWT.\n// 3. Create protected layout for admin pages (sidebar, header), redirecting if not authenticated.\n// 4. 'Gestão de Profissionais' module: List professionals; forms for create/edit (name, CRP, specialities, availability, values, photo upload, bio); API calls to backend. Handle image uploads.\n<info added on 2025-06-30T18:32:31.746Z>\nPROGRESSO ATUAL - Admin Panel em desenvolvimento:\n- Estrutura base Next.js criada em apps/admin-web/\n- Configuração TypeScript, Tailwind CSS, PostCSS\n- Layout básico implementado (Header.tsx, Sidebar.tsx)\n- Páginas principais criadas: appointments/, patients/, professionals/\n- Componentes dashboard básicos (MetricCard.tsx, RecentAppointments.tsx)\n- Estrutura de roteamento com App Router\n\nPRÓXIMOS PASSOS:\n- Implementar autenticação/login (aguarda Task 4 - Backend Auth)\n- Conectar APIs CRUD de profissionais (aguarda Task 5)\n- Implementar formulários de gestão de profissionais\n- Implementar proteção de rotas autenticadas\n</info added on 2025-06-30T18:32:31.746Z>",
         "testStrategy": "Functional testing: Admin login/logout, route protection. CRUD operations for professionals, verifying data persistence via API. Form validation.",
         "priority": "high",
         "dependencies": [
           1,
           5
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "in-progress",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement Admin Login Page and Authentication Logic",
+            "description": "Develop the UI for the admin login page and implement the client-side logic to call the backend's `/auth/login` endpoint (from Task 4). On success, securely store the received JWT to manage the user's session.",
+            "dependencies": [],
+            "details": "Use a form library like `react-hook-form` for input validation. Upon successful authentication, store the JWT in an httpOnly cookie or a secure state management solution. Implement user feedback for both successful and failed login attempts (e.g., error messages for invalid credentials).",
+            "status": "in-progress",
+            "testStrategy": "Test login with valid and invalid credentials. Verify that a JWT is stored correctly upon successful login and that appropriate error messages are displayed on failure. Check that the user is redirected to the dashboard after logging in."
+          },
+          {
+            "id": 2,
+            "title": "Implement Protected Routes and Admin Layout",
+            "description": "Create a route protection mechanism using Next.js Middleware. This will check for a valid JWT on all admin routes and redirect unauthenticated users to the login page. Integrate the existing `Header.tsx` and `Sidebar.tsx` into this protected layout.",
+            "dependencies": [
+              1
+            ],
+            "details": "Create a `middleware.ts` file in the `apps/admin-web` root. The middleware will inspect request cookies for the auth token. The main layout component will wrap all protected pages, providing the consistent header and sidebar. Implement a logout button in the header that clears the session and redirects to `/login`.",
+            "status": "pending",
+            "testStrategy": "Attempt to access a protected admin URL directly without being logged in; assert redirection to the login page. Log in and confirm access to protected pages. Use the logout functionality and verify the session is terminated."
+          },
+          {
+            "id": 3,
+            "title": "Develop 'List Professionals' Page with API Integration",
+            "description": "Build the UI for the 'Gestão de Profissionais' page to display a table of all professionals. Implement the API call to fetch data from the `GET /professionals` endpoint provided by Task 5.",
+            "dependencies": [
+              2
+            ],
+            "details": "Use a data fetching library like SWR or React Query to handle data fetching, caching, and loading/error states. The table should display key information such as Name, CRP, and Specialities. Each row must include 'Edit' and 'Delete' action buttons.",
+            "status": "pending",
+            "testStrategy": "Verify that the page correctly fetches and displays a list of professionals from the backend. Test the loading state (e.g., show a spinner) and the error state (e.g., show an error message if the API call fails)."
+          },
+          {
+            "id": 4,
+            "title": "Implement 'Create Professional' Form and Functionality",
+            "description": "Develop the form for adding a new professional, including all required fields: name, CRP, specialities, availability, values, bio, and a photo upload component. Connect the form submission to the `POST /professionals` API endpoint from Task 5.",
+            "dependencies": [
+              3
+            ],
+            "details": "Use `react-hook-form` for robust form state management and validation. The photo upload should handle file selection and be sent as `multipart/form-data`. Upon successful creation, invalidate the SWR/React Query cache for the professionals list to trigger a re-fetch and show the new entry.",
+            "status": "pending",
+            "testStrategy": "Test form submission with valid data and verify the new professional appears in the list. Test all field validations by submitting invalid or incomplete data. Verify the image upload functionality works as expected."
+          },
+          {
+            "id": 5,
+            "title": "Implement 'Edit Professional' Form and Functionality",
+            "description": "Create the 'Edit Professional' page and form. This form should be pre-populated with data fetched for a specific professional. Connect the form submission to the `PUT /professionals/:id` API endpoint from Task 5.",
+            "dependencies": [
+              4
+            ],
+            "details": "Reuse the 'Create Professional' form component, adapting it for editing. The page will take a professional's ID as a URL parameter to fetch their data. The photo field should display the current image and allow for it to be replaced. On successful update, redirect to the list and ensure the data is refreshed.",
+            "status": "pending",
+            "testStrategy": "Navigate to an edit page and verify all fields are correctly pre-filled. Modify the data, submit the form, and confirm that the changes are reflected in the professionals list. Test replacing the existing photo."
+          },
+          {
+            "id": 6,
+            "title": "Implement 'Delete Professional' Functionality with Confirmation",
+            "description": "Implement the logic for deleting a professional from the list. This includes displaying a confirmation modal to prevent accidental deletions before calling the `DELETE /professionals/:id` API endpoint from Task 5.",
+            "dependencies": [
+              3
+            ],
+            "details": "The 'Delete' button in the professionals list will trigger a confirmation modal. If the user confirms, make the API call to the DELETE endpoint. Upon successful deletion, update the UI by re-fetching the professionals list or removing the item from the local cache. Provide a success/error toast notification.",
+            "status": "pending",
+            "testStrategy": "Click the delete button and verify the confirmation modal appears. Test the 'Cancel' action. Confirm the deletion and verify the professional is removed from the UI list. Check for appropriate user feedback."
+          }
+        ]
       },
       {
         "id": 13,
@@ -250,7 +315,7 @@
     ],
     "metadata": {
       "created": "2025-06-25T19:11:36.462Z",
-      "updated": "2025-06-25T20:18:30.977Z",
+      "updated": "2025-06-30T19:05:50.345Z",
       "description": "Tasks for master context"
     }
   }
