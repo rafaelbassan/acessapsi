@@ -25,7 +25,9 @@
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "deploy:staging": "./scripts/deploy-staging.sh",
-    "deploy:production": "./scripts/deploy-production.sh"
+    "deploy:production": "./scripts/deploy-production.sh",
+    "prepare-env": "node scripts/ensure-env.js",
+    "postinstall": "node scripts/ensure-env.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.0",
