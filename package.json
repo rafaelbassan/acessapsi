@@ -8,7 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "cd apps/patient-web && npm start",
+    "start:admin": "cd apps/admin-web && npm run dev",
+    "start:patient": "cd apps/patient-web && npm start",
+    "start": "npm-run-all --parallel start:admin start:patient",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
@@ -42,6 +44,7 @@
     "eslint-plugin-react-native": "^4.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
+    "npm-run-all": "4.1.5",
     "prettier": "^3.0.0",
     "turbo": "1.13.4",
     "typescript": "^5.1.0"
