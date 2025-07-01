@@ -4,7 +4,8 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react']
   },
-  reactStrictMode: true
+  reactStrictMode: true,
+  output: 'standalone'
 }
 
 module.exports = nextConfig 
