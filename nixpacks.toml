@@ -11,7 +11,7 @@ cmds = [
 cmds = [
   # Builda o app e todos os pacotes necessários via turbo
   'cd apps/admin-web && npm run build',
-  'cd ../patient-web && npm run build'
+  'cd apps/patient-web && npm run build'
 ]
 
 [start]
