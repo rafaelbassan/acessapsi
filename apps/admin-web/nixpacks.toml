@@ -1,0 +1,20 @@
+[phases.setup]
+nixPkgs = ['nodejs-18_x', 'npm-9_x']
+
+[phases.install]
+cmds = [
+  # Instala dependências na raiz do monorepo
+  'cd ../..',
+  'NODE_ENV=development npm install'
+]
+
+[phases.build]
+cmds = [
+  # Builda o app e todos os pacotes necessários via turbo
+  'cd ../..',
+  'npx turbo run build --filter=@psiclin/admin-web'
+]
+
+[start]
+# Inicia o app no diretório correto
+cmd = 'cd apps/admin-web && npm start'
