@@ -8,9 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "start:admin": "cd apps/admin-web && npm run dev",
+    "start:admin": "cd apps/admin-web && npm start",
     "start:patient": "cd apps/patient-web && npm start",
-    "start": "npm-run-all --parallel start:admin start:patient",
+    "start": "concurrently \"npm run start:admin\" \"npm run start:patient\"",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
@@ -36,6 +36,7 @@
     "@commitlint/config-conventional": "^17.6.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "9.2.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",

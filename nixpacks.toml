@@ -10,7 +10,8 @@ cmds = [
 [phases.build]
 cmds = [
   # Builda o app e todos os pacotes necessários via turbo
-  'npx turbo run build --filter=@psiclin/admin-web'
+  'cd apps/admin-web && npm run build',
+  'cd ../patient-web && npm run build'
 ]
 
 [start]
