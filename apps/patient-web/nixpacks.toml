@@ -1,0 +1,24 @@
+[phases.setup]
+nixPkgs = ['nodejs-18_x', 'npm-9_x']
+
+[phases.install]
+# Install dependencies from the root of the monorepo
+cmds = [
+  # Navigate to repository root and install all dependencies
+  'cd ../..',
+  'npm install',
+  # Navigate back to the app directory for the build phase
+  'cd apps/patient-web'
+]
+
+[phases.build]
+# Build the specific patient-web app using turbo
+cmds = [
+  # Navigate to root and build the specific app with turbo
+  'cd ../..',
+  'npx turbo run build --filter=@psiclin/patient-web'
+]
+
+[start]
+# Start the patient-web app
+cmd = 'cd apps/patient-web && npm start' 
