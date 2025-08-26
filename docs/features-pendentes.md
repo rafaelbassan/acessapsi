@@ -1,4 +1,4 @@
-# Features Pendentes - PsiClin
+# Features Pendentes - AcessaPsi
 
 ## Visão Geral
 Este documento lista as principais funcionalidades que precisam ser implementadas para o sistema PsiClin, focando nos cadastros fundamentais e suas integrações.

@@ -1,14 +1,14 @@
-# PsiClin - Sistema de Gestão para Clínicas de Psicologia
+# AcessaPsi - Sistema de Gestão para Clínicas de Psicologia
 
 ## Visão Geral
 
-PsiClin é uma solução completa para gestão de clínicas de psicologia, oferecendo uma plataforma integrada para pacientes, profissionais e administradores.
+AcessaPsi é uma solução completa para gestão de clínicas de psicologia, oferecendo uma plataforma integrada para pacientes, profissionais e administradores.
 
 ## Arquitetura do Sistema
 
 ### Monorepo Structure
 ```
-PsiClin/
+AcessaPsi/
 ├── apps/
 │   ├── mobile/          # React Native - App para pacientes
 │   ├── patient-web/     # Next.js - Versão web para pacientes

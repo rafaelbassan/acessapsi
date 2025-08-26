@@ -73,9 +73,9 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@psiclin.com.br",
+      value: "contato@acessapsi.com.br",
       description: "Resposta em até 24h",
-      action: "mailto:contato@psiclin.com.br",
+      action: "mailto:contato@acessapsi.com.br",
       gradient: "from-blue-500 to-indigo-600"
     },
     {

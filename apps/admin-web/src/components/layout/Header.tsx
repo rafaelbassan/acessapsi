@@ -12,8 +12,8 @@ export default function Header() {
 
   // Mock user data - will be replaced with real data
   const user = {
-    name: 'Admin PsiClin',
-    email: 'admin@psiclin.com',
+    name: 'Admin AcessaPsi',
+    email: 'admin@acessapsi.com',
     avatar: null,
   }
 

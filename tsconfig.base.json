@@ -16,12 +16,12 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@psiclin/shared-types": ["./packages/shared-types/src"],
-      "@psiclin/shared-types/*": ["./packages/shared-types/src/*"],
-      "@psiclin/ui-components": ["./packages/ui-components/src"],
-      "@psiclin/ui-components/*": ["./packages/ui-components/src/*"],
-      "@psiclin/utils": ["./packages/utils/src"],
-      "@psiclin/utils/*": ["./packages/utils/src/*"]
+  "@acessapsi/shared-types": ["./packages/shared-types/src"],
+  "@acessapsi/shared-types/*": ["./packages/shared-types/src/*"],
+  "@acessapsi/ui-components": ["./packages/ui-components/src"],
+  "@acessapsi/ui-components/*": ["./packages/ui-components/src/*"],
+  "@acessapsi/utils": ["./packages/utils/src"],
+  "@acessapsi/utils/*": ["./packages/utils/src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],

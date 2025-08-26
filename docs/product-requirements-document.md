@@ -1,4 +1,4 @@
-# PsiClin - Product Requirements Document (PRD)
+# AcessaPsi - Product Requirements Document (PRD)
 
 ## 1. Visão do Produto
 

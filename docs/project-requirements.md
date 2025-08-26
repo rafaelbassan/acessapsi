@@ -1,4 +1,4 @@
-# PsiClin - Requisitos do Projeto
+# AcessaPsi - Requisitos do Projeto
 
 ## 1. Visão Geral do Negócio
 

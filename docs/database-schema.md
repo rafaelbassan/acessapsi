@@ -1,8 +1,8 @@
-# PsiClin - Schema do Banco de Dados (Firebase)
+# AcessaPsi - Schema do Banco de Dados (Firebase)
 
 ## 1. Visão Geral do Modelo de Dados
 
-O banco de dados do PsiClin utiliza Firebase Firestore para oferecer uma solução NoSQL escalável e em tempo real. O sistema é projetado para suportar múltiplas clínicas com isolamento completo de dados.
+O banco de dados do AcessaPsi utiliza Firebase Firestore para oferecer uma solução NoSQL escalável e em tempo real. O sistema é projetado para suportar múltiplas clínicas com isolamento completo de dados.
 
 ### 1.1 Principais Coleções
 - **clinics**: Clínicas de psicologia

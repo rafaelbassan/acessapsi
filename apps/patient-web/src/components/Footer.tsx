@@ -72,7 +72,7 @@ const Footer = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Portal Psi</h3>
+                <h3 className="text-2xl font-bold text-white">AcessaPsi</h3>
               </div>
               
               <p className="text-neutral-300 mb-6 leading-relaxed">
@@ -187,7 +187,7 @@ const Footer = () => {
                   <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
-                  <p className="text-neutral-300">contato@psiclin.com.br</p>
+                  <p className="text-neutral-300">contato@acessapsi.com.br</p>
                 </div>
 
                 <div className="flex items-start gap-4">
@@ -247,7 +247,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-6 text-neutral-400">
-                                <p>&copy; {currentYear} Portal Psi. Todos os direitos reservados.</p>
+                                <p>&copy; {currentYear} AcessaPsi. Todos os direitos reservados.</p>
             </div>
             
             <div className="flex items-center gap-6">

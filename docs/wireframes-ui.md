@@ -1,4 +1,4 @@
-# PsiClin - Wireframes e Especificações UI/UX
+# AcessaPsi - Wireframes e Especificações UI/UX
 
 ## 1. Design System
 

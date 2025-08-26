@@ -1,7 +1,7 @@
 # Script de deploy para VPS
 #!/bin/bash
 
-echo "🚀 Iniciando deploy do PsiClin..."
+echo "🚀 Iniciando deploy do AcessaPsi..."
 
 # Cores para output
 GREEN='\033[0;32m'

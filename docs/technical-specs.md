@@ -1,4 +1,4 @@
-# PsiClin - Especificações Técnicas
+# AcessaPsi - Especificações Técnicas
 
 ## 1. Estrutura do Monorepo
 

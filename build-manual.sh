@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script de build manual (sem turbo)
-echo "🏗️ Building PsiClin apps manually..."
+echo "🏗️ Building AcessaPsi apps manually..."
 
 # Cores
 GREEN='\033[0;32m'

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@psiclin/shared-types', '@psiclin/ui-components', '@psiclin/utils'],
+  transpilePackages: ['@acessapsi/shared-types', '@acessapsi/ui-components', '@acessapsi/utils'],
   experimental: {
     optimizePackageImports: ['lucide-react']
   },

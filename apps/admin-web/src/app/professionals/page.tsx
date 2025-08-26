@@ -6,7 +6,7 @@ const professionals = [
   {
     id: '1',
     name: 'Dr. João Santos',
-    email: 'joao.santos@psiclin.com',
+  email: 'joao.santos@acessapsi.com',
     phone: '11987654321',
     crp: 'CRP 06/123456',
     specialties: ['Psicologia Clínica', 'Terapia Cognitiva'],
@@ -19,7 +19,7 @@ const professionals = [
   {
     id: '2',
     name: 'Dra. Ana Costa',
-    email: 'ana.costa@psiclin.com',
+  email: 'ana.costa@acessapsi.com',
     phone: '11987654322',
     crp: 'CRP 06/789012',
     specialties: ['Psicologia Infantil', 'Neuropsicologia'],
@@ -32,7 +32,7 @@ const professionals = [
   {
     id: '3',
     name: 'Dr. Carlos Lima',
-    email: 'carlos.lima@psiclin.com',
+  email: 'carlos.lima@acessapsi.com',
     phone: '11987654323',
     crp: 'CRP 06/345678',
     specialties: ['Terapia de Casal', 'Terapia Familiar'],
