@@ -55,7 +55,7 @@ const Navigation = () => {
               <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/40 transition-all duration-300 overflow-hidden">
                 <Image 
                   src="/images/logo_psi.png"
-                  alt="Portal Psi Logo"
+                  alt="Acessa Psi Logo"
                   width={40}
                   height={40}
                   className="w-full h-full object-contain"
@@ -63,7 +63,7 @@ const Navigation = () => {
                 />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Portal Psi
+                Acessa Psi
               </span>
             </div>
 
@@ -83,13 +83,17 @@ const Navigation = () => {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-4">
-              <a 
-                href="tel:+5511999998888"
+              <button 
+                onClick={() => {
+                  const phoneNumber = '5519988200585';
+                  const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços psicológicos.');
+                  window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                }}
                 className="text-slate-300 hover:text-white transition-all duration-300 flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/10 group"
               >
                 <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="text-sm font-medium">(11) 9999-8888</span>
-              </a>
+                <span className="text-sm font-medium">(19) 98820-0585</span>
+              </button>
               
               <LiquidGlassButton 
                 variant="primary" 
@@ -153,13 +157,18 @@ const Navigation = () => {
 
           {/* Mobile CTA */}
           <div className="space-y-3 pt-4 border-t border-white/10">
-            <a 
-              href="tel:+5511999998888"
+            <button 
+              onClick={() => {
+                const phoneNumber = '5519988200585';
+                const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços psicológicos.');
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                setIsMobileMenuOpen(false);
+              }}
               className="w-full py-4 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2 group"
             >
               <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              <span className="font-medium">(11) 9999-8888</span>
-            </a>
+              <span className="font-medium">(19) 98820-0585</span>
+            </button>
             
             <LiquidGlassButton 
               variant="primary" 

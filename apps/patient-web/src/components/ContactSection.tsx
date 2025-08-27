@@ -64,10 +64,14 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Telefone",
-      value: "(11) 9999-8888",
+      title: "WhatsApp",
+      value: "(19) 98820-0585",
       description: "Seg a Sex, 8h às 18h",
-      action: "tel:+5511999998888",
+      action: () => {
+        const phoneNumber = '5519988200585';
+        const message = encodeURIComponent('Olá! Gostaria de agendar uma consulta ou saber mais sobre os serviços.');
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+      },
       gradient: "from-green-500 to-emerald-600"
     },
     {
@@ -161,8 +165,15 @@ const ContactSection = () => {
               variant="light"
               intensity="medium"
               interactive
-              className={`p-6 text-center hover:scale-105 transition-all duration-700 delay-${index * 100} bg-white/5 border border-white/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`p-6 text-center hover:scale-105 transition-all duration-700 delay-${index * 100} bg-white/5 border border-white/10 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               cornerRadius={24}
+              onClick={() => {
+                if (typeof info.action === 'function') {
+                  info.action();
+                } else if (typeof info.action === 'string') {
+                  window.open(info.action, '_blank');
+                }
+              }}
             >
               <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${info.gradient} flex items-center justify-center`}>
                 {React.createElement(info.icon, { className: "w-8 h-8 text-white" })}
@@ -397,7 +408,7 @@ const ContactSection = () => {
                 ))}
               </div>
               <p className="text-neutral-400 text-sm mt-4">
-                                    Acompanhe dicas de saúde mental e novidades do Portal Psi
+                                    Acompanhe dicas de saúde mental e novidades do Acessa Psi
               </p>
             </LiquidGlassCard>
           </div>

@@ -36,7 +36,9 @@ export default function HeroSection() {
   };
 
   const handleCallSpecialist = () => {
-    window.open('tel:+5511999998888', '_self');
+    const phoneNumber = '5519988200585';
+    const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços psicológicos.');
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   return (
@@ -72,7 +74,7 @@ export default function HeroSection() {
                 <div className="p-4 xl:p-5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl shadow-blue-500/25 overflow-hidden">
                   <Image
                     src="/images/logo_psi.png"
-                    alt="Portal Psi Logo"
+                    alt="Acessa Psi Logo"
                     width={32}
                     height={32}
                     className="w-7 h-7 xl:w-8 xl:h-8 object-contain"
@@ -82,7 +84,7 @@ export default function HeroSection() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-20 blur-lg animate-pulse"></div>
               </div>
               <div>
-                <span className="text-3xl xl:text-4xl font-bold text-white">Portal Psi</span>
+                <span className="text-3xl xl:text-4xl font-bold text-white">Acessa Psi</span>
                 <p className="text-blue-300 text-sm xl:text-base font-medium">Cuidado psicológico especializado</p>
               </div>
             </div>

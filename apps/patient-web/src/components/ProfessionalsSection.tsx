@@ -41,50 +41,26 @@ const ProfessionalsSection = () => {
   const professionals = [
     {
       id: 1,
-      name: "Dra. Maria Silva",
-      specialty: "Psicóloga Clínica",
-      experience: "15 anos de experiência",
+      name: "Alex Gustavo Bassan",
+      specialty: "Psicólogo Clínico e Social",
+      experience: "11 anos de experiência (desde 2014)",
       image: "/api/placeholder/300/300",
       rating: 4.9,
-      reviews: 127,
-      description: "Especialista em terapia cognitivo-comportamental com foco em ansiedade e depressão.",
-      credentials: ["CRP 06/123456", "Mestre em Psicologia Clínica", "Especialista em TCC"],
+      reviews: 85,
+      description: "Especialista em Psicologia Sistêmica e Análise do Comportamento Aplicada. Utiliza jogos para desenvolvimento socioemocional e mantém formação continuada em Psicologia Positiva desde 2019.",
+      credentials: ["CRP 06/115097", "Graduação em Psicologia - UNIP", "Especialista em Psicologia Sistêmica", "Formação em Análise do Comportamento Aplicada", "Psicologia Positiva (desde 2019)"],
       availability: "Segunda a Sexta, 8h às 18h",
-      languages: ["Português", "Inglês"]
-    },
-    {
-      id: 2,
-      name: "Dr. João Santos",
-      specialty: "Psicólogo Familiar",
-      experience: "12 anos de experiência",
-      image: "/api/placeholder/300/300",
-      rating: 4.8,
-      reviews: 98,
-      description: "Focado em terapia de casal e familiar, com abordagem sistêmica e humanística.",
-      credentials: ["CRP 06/789012", "Doutor em Psicologia", "Especialista em Terapia Familiar"],
-      availability: "Terça a Sábado, 9h às 19h",
-      languages: ["Português", "Espanhol"]
-    },
-    {
-      id: 3,
-      name: "Dra. Ana Costa",
-      specialty: "Psicóloga Infantil",
-      experience: "10 anos de experiência",
-      image: "/api/placeholder/300/300",
-      rating: 5.0,
-      reviews: 156,
-      description: "Especializada em desenvolvimento infantil e adolescente, com técnicas lúdicas.",
-      credentials: ["CRP 06/345678", "Especialista em Psicologia Infantil", "Formação em Ludoterapia"],
-      availability: "Segunda a Quinta, 14h às 20h",
-      languages: ["Português"]
+      languages: ["Português"],
+      location: "Clínica Raízes - Campinas/SP",
+      whatsapp: "5519988200585"
     }
   ];
 
   const stats = [
-    { number: "15+", label: "Profissionais", icon: Users },
-    { number: "1000+", label: "Pacientes Atendidos", icon: Heart },
+    { number: "1", label: "Profissional", icon: Users },
+    { number: "200+", label: "Pacientes Atendidos", icon: Heart },
     { number: "98%", label: "Satisfação", icon: Star },
-    { number: "24/7", label: "Suporte", icon: Clock }
+    { number: "11", label: "Anos de Experiência", icon: Clock }
   ];
 
   return (
@@ -118,7 +94,7 @@ const ProfessionalsSection = () => {
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Profissionais dedicados ao
-            <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
               seu bem-estar
             </span>
           </h2>
@@ -287,6 +263,11 @@ const ProfessionalsSection = () => {
                   <LiquidGlassButton 
                     variant="primary" 
                     size="lg"
+                    onClick={() => {
+                      const phoneNumber = '5519988200585';
+                      const message = encodeURIComponent('Olá Alex! Gostaria de agendar uma consulta psicológica.');
+                      window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                    }}
                     className="flex items-center justify-center space-x-2 flex-1"
                   >
                     <Calendar className="w-5 h-5" />
@@ -297,6 +278,11 @@ const ProfessionalsSection = () => {
                   <LiquidGlassButton 
                     variant="ghost" 
                     size="lg"
+                    onClick={() => {
+                      const phoneNumber = '5519988200585';
+                      const message = encodeURIComponent('Olá Alex! Gostaria de saber mais sobre seus serviços psicológicos.');
+                      window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                    }}
                     className="flex items-center justify-center space-x-2 bg-white/10 border border-white/20 text-white hover:bg-white/20"
                   >
                     <MessageCircle className="w-5 h-5" />
@@ -317,21 +303,41 @@ const ProfessionalsSection = () => {
             cornerRadius={32}
           >
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
-              Encontre o profissional ideal para você
+              Conheça nosso profissional especializado
             </h3>
             <p className="text-neutral-300 mb-6">
-              Nossa equipe está pronta para oferecer o suporte personalizado que você precisa 
+              Alex Bassan está pronto para oferecer o suporte personalizado que você precisa 
               em sua jornada de crescimento e bem-estar.
             </p>
-            <LiquidGlassButton 
-              variant="primary" 
-              size="lg"
-              className="flex items-center gap-2 group mx-auto"
-            >
-              <Users className="w-5 h-5" />
-              Ver Todos os Profissionais
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </LiquidGlassButton>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <LiquidGlassButton 
+                variant="primary" 
+                size="lg"
+                onClick={() => {
+                  const phoneNumber = '5519988200585';
+                  const message = encodeURIComponent('Olá Alex! Gostaria de agendar uma consulta.');
+                  window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                }}
+                className="flex items-center gap-2 group"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Conversar no WhatsApp
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </LiquidGlassButton>
+              
+              <LiquidGlassButton 
+                variant="ghost" 
+                size="lg"
+                onClick={() => {
+                  window.location.href = '/alexbassan';
+                }}
+                className="flex items-center gap-2 group"
+              >
+                <Users className="w-5 h-5" />
+                Ver Perfil Completo
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </LiquidGlassButton>
+            </div>
           </LiquidGlassCard>
         </div>
       </div>
