@@ -30,7 +30,7 @@ fi
 
 # Parar aplicações PM2 se estiverem rodando
 log "Parando aplicações existentes..."
-pm2 stop patient-web admin-web 2>/dev/null || true
+pm2 stop patient-web 2>/dev/null || true
 
 # Atualizar código
 log "Atualizando código do repositório..."
@@ -65,7 +65,6 @@ pm2 status
 
 log "✅ Deploy concluído com sucesso!"
 log "🌐 Patient Web: http://localhost:3000"
-log "🔧 Admin Web: http://localhost:3001"
 log ""
 log "Para ver logs: pm2 logs"
 log "Para monitorar: pm2 monit"

@@ -9,8 +9,7 @@ cmds = [
 
 [phases.build]
 cmds = [
-  # Builda o app e todos os pacotes necessários via turbo
-  'cd apps/admin-web && npm run build',
+  # Builda apenas o patient-web app por enquanto
   'cd apps/patient-web && npm run build'
 ]
 

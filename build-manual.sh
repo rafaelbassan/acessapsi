@@ -37,20 +37,20 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Build da admin-web
-log "Building admin-web..."
-cd ../admin-web
-npm ci
-npm run build
+# # Build da admin-web (temporariamente desabilitado)
+# log "Building admin-web..."
+# cd ../admin-web
+# npm ci
+# npm run build
 
-if [ $? -ne 0 ]; then
-    error "Falha no build da admin-web"
-    exit 1
-fi
+# if [ $? -ne 0 ]; then
+#     error "Falha no build da admin-web"
+#     exit 1
+# fi
 
 # Voltar para o root
 cd ../..
 
 log "✅ Build concluído com sucesso!"
 log "📁 Patient Web build: apps/patient-web/.next"
-log "📁 Admin Web build: apps/admin-web/.next"
+# log "📁 Admin Web build: apps/admin-web/.next (desabilitado)"
