@@ -10,7 +10,7 @@
   "scripts": {
     "start:admin": "cd apps/admin-web && npm start",
     "start:patient": "cd apps/patient-web && npm start",
-    "start": "concurrently \"npm run start:admin\" \"npm run start:patient\"",
+    "start": "npm run start:patient",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
