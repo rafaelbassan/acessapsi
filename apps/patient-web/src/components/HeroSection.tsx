@@ -4,31 +4,82 @@ import React, { useState, useEffect } from 'react'
 import LiquidGlassCard from './LiquidGlassCard';
 import LiquidGlassButton from './LiquidGlassButton';
 import { useRouter } from 'next/navigation';
-import { 
-  ArrowRight, 
-  Calendar, 
-  Heart, 
-  Star,
-  CheckCircle,
-  PlayCircle,
-  Shield,
-  Clock,
-  Users,
-  Award,
+import {
+  ArrowRight,
+  Calendar,
   Phone,
-  MessageCircle,
-  Brain,
-  Smile
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  GraduationCap
 } from 'lucide-react';
 import Image from 'next/image';
 
+interface Specialist {
+  id: number;
+  name: string;
+  specialty: string;
+  experience: string;
+  image: string;
+  rating: number;
+  reviews: number;
+  description: string;
+  location: string;
+  education: string;
+  approaches: string[];
+  availability: string;
+}
+
+const specialists: Specialist[] = [
+  {
+    id: 1,
+    name: "Alex Gustavo Bassan",
+    specialty: "Psicólogo Clínico",
+    experience: "11 anos de experiência",
+    image: "/api/placeholder/300/300",
+    rating: 4.9,
+    reviews: 85,
+    description: "Especialista em Psicologia Sistêmica e Análise do Comportamento Aplicada. Utiliza jogos para desenvolvimento socioemocional e mantém formação continuada em Psicologia Positiva.",
+    location: "São Paulo, SP",
+    education: "CRP 06/123456",
+    approaches: ["Terapia Familiar", "Intervenções Comportamentais", "Psicologia Positiva"],
+    availability: "Segunda a Sexta, 8h às 18h"
+  },
+  {
+    id: 2,
+    name: "Dra. Ana Silva",
+    specialty: "Psicóloga Infantil",
+    experience: "8 anos de experiência",
+    image: "/api/placeholder/300/300",
+    rating: 4.8,
+    reviews: 62,
+    description: "Especializada em atendimento infantil e adolescente, com foco em desenvolvimento emocional e dificuldades de aprendizagem.",
+    location: "São Paulo, SP",
+    education: "CRP 06/789012",
+    approaches: ["Terapia Infantil", "Orientação Parental", "TDAH"],
+    availability: "Terça a Sábado, 9h às 17h"
+  }
+];
+
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentSpecialist, setCurrentSpecialist] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    if (!isAutoPlaying || specialists.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentSpecialist((prev) => (prev + 1) % specialists.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   const handleBookAppointment = () => {
     const contactSection = document.getElementById('contact');
@@ -43,33 +94,40 @@ export default function HeroSection() {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
+  const nextSpecialist = () => {
+    setCurrentSpecialist((prev) => (prev + 1) % specialists.length);
+    setIsAutoPlaying(false);
+  };
+
+  const prevSpecialist = () => {
+    setCurrentSpecialist((prev) => (prev - 1 + specialists.length) % specialists.length);
+    setIsAutoPlaying(false);
+  };
+
+  const goToSpecialist = (index: number) => {
+    setCurrentSpecialist(index);
+    setIsAutoPlaying(false);
+  };
+
+  const currentSpec = specialists[currentSpecialist];
+
   return (
-    <section className="relative min-h-screen lg:h-screen lg:max-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 overflow-hidden bg-hero pt-20 pb-8 lg:pt-16 lg:pb-4">
-      
-      {/* Subtle Background Elements */}
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 overflow-hidden bg-hero pt-16 pb-6">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute w-48 h-48 lg:w-72 lg:h-72 bg-blue-500/10 rounded-full blur-3xl top-10 lg:top-20 left-10 lg:left-20 animate-pulse" />
-        <div className="absolute w-40 h-40 lg:w-64 lg:h-64 bg-indigo-500/10 rounded-full blur-3xl bottom-20 lg:bottom-32 right-16 lg:right-32 animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute w-32 h-32 lg:w-48 lg:h-48 bg-purple-500/10 rounded-full blur-2xl top-1/2 left-1/4 lg:left-1/3 animate-pulse" style={{ animationDelay: '4s' }} />
-        
-        {/* Decorative background image */}
-        <div className="absolute top-1/4 right-1/4 lg:right-1/5 w-32 h-32 lg:w-48 lg:h-48 opacity-5 rotate-12">
-          <Image 
-            src="/images/decorator.png" 
-            alt="" 
-            width={192}
-            height={192}
-            className="w-full h-full object-contain filter blur-sm"
-          />
-        </div>
+        <div className="absolute w-48 h-48 lg:w-72 lg:h-72 bg-blue-500/8 rounded-full blur-3xl top-10 lg:top-20 left-10 lg:left-20 animate-pulse" />
+        <div className="absolute w-40 h-40 lg:w-64 lg:h-64 bg-indigo-500/8 rounded-full blur-3xl bottom-20 lg:bottom-32 right-16 lg:right-32 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute w-32 h-32 lg:w-48 lg:h-48 bg-purple-500/6 rounded-full blur-2xl top-1/2 left-1/4 lg:left-1/3 animate-pulse" style={{ animationDelay: '4s' }} />
+
+        {/* Floating geometric shapes */}
+        <div className="absolute top-1/4 right-1/4 w-16 h-16 border border-white/10 rotate-45 animate-float opacity-30" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-1/3 left-1/5 w-12 h-12 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full animate-float opacity-40" style={{ animationDelay: '3s' }} />
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl 2xl:max-w-6xl mx-auto h-full flex items-center">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 2xl:gap-20 items-center">
-          
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-12 items-center min-h-[75vh]">
           {/* Left Column - Main Content */}
-          <div className={`space-y-4 lg:space-y-5 xl:space-y-6 max-w-2xl lg:max-w-none transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            
+          <div className={`lg:col-span-7 space-y-5 lg:space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             {/* Brand Badge */}
             <div className="flex items-center space-x-4">
               <div className="relative">
@@ -92,164 +150,165 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-3 lg:space-y-4 xl:space-y-5">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-5xl font-bold text-white leading-tight">
+            <div className="space-y-3 lg:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                 Cuide da sua
-                <span className="block text-cyan-300 font-bold">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 font-bold">
                   saúde mental
                 </span>
                 com quem entende
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl xl:text-xl 2xl:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-2xl">
                 Profissionais qualificados e experientes prontos para te ajudar em sua jornada de autoconhecimento e bem-estar emocional.
               </p>
             </div>
 
-
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 xl:gap-6">
-              <LiquidGlassButton 
-                variant="primary" 
+            {/* CTA Buttons - Fixed Layout */}
+            <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 pt-3">
+              <LiquidGlassButton
+                variant="primary"
                 size="lg"
                 onClick={handleBookAppointment}
-                className="flex items-center justify-center space-x-2 sm:space-x-3 px-6 py-3 sm:px-8 sm:py-4 xl:px-10 xl:py-5 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300"
+                className="flex items-center justify-center space-x-3 px-8 py-4 lg:px-10 lg:py-5 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95 group relative overflow-hidden w-full sm:w-auto"
               >
-                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 xl:w-6 xl:h-6" />
-                <span className="font-semibold text-sm sm:text-base xl:text-lg">Agendar Consulta</span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 xl:w-6 xl:h-6" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl" />
+                <Calendar className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="font-semibold text-base lg:text-lg relative z-10">Agendar Consulta</span>
+                <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
               </LiquidGlassButton>
 
-              <LiquidGlassButton 
-                variant="ghost" 
+              <LiquidGlassButton
+                variant="ghost"
                 size="lg"
                 onClick={handleCallSpecialist}
-                className="flex items-center justify-center space-x-2 sm:space-x-3 px-6 py-3 sm:px-8 sm:py-4 xl:px-10 xl:py-5 hover:bg-white/10 transition-all duration-300"
+                className="flex items-center justify-center space-x-3 px-8 py-4 lg:px-10 lg:py-5 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 active:scale-95 group relative overflow-hidden w-full sm:w-auto"
               >
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 xl:w-6 xl:h-6" />
-                <span className="font-semibold text-sm sm:text-base xl:text-lg">Falar com Especialista</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                <Phone className="w-5 h-5 lg:w-6 lg:h-6 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <span className="font-semibold text-base lg:text-lg relative z-10">Falar com Especialista</span>
               </LiquidGlassButton>
             </div>
-
-            
           </div>
 
-          {/* Right Column - Visual Elements */}
-          <div className={`space-y-3 sm:space-y-2 lg:space-y-3 xl:space-y-4 max-w-lg sm:max-w-2xl lg:max-w-none xl:max-w-2xl mx-auto lg:mx-0 pb-4 sm:pb-6 lg:pb-8 xl:pb-10 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            
-            {/* Main Image Card */}
-            <LiquidGlassCard 
-              variant="heavy" 
-              intensity="medium"
-              className="bg-white/5 border border-white/10 relative overflow-hidden hover:bg-white/10 transition-all duration-500 mt-20 lg:mt-24 xl:mt-28"
-              cornerRadius={12}
-              padding="0.5em"
-            >
-              {/* Therapy session image */}
-              <div className="aspect-[3/2] sm:aspect-[2/1] lg:aspect-[5/3] xl:aspect-[4/3] rounded-xl overflow-hidden relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                  alt="Sessão de terapia em ambiente acolhedor"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                <div className="absolute bottom-3 left-3 right-3 lg:bottom-4 lg:left-4 lg:right-4 xl:bottom-5 xl:left-5 xl:right-5">
-                  <p className="text-white font-medium text-xs lg:text-sm xl:text-base bg-black/20 backdrop-blur-sm rounded-lg px-2 py-1 lg:px-3 lg:py-2 xl:px-4 xl:py-3">
-                    Ambiente acolhedor e profissional
+          {/* Right Column - Specialist Carousel */}
+          <div className={`lg:col-span-5 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+            <div className="relative max-w-md mx-auto">
+              {/* Main Specialist Card */}
+              <LiquidGlassCard
+                variant="elevated"
+                intensity="medium"
+                glowEffect={true}
+                shimmerEffect={true}
+                className="bg-white/5 border border-white/10 relative overflow-hidden hover:bg-white/10 transition-all duration-500 group cursor-pointer"
+                cornerRadius={16}
+                padding="0"
+              >
+                {/* Specialist Image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-2xl">
+                      <span className="text-white font-bold text-2xl">
+                        {currentSpec.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Floating elements */}
+                  <div className="absolute top-2 right-2 w-3 h-3 bg-gradient-to-br from-cyan-400/40 to-blue-400/40 rounded-full blur-sm animate-float opacity-60" />
+                  <div className="absolute bottom-3 left-3 w-2 h-2 bg-gradient-to-br from-purple-400/40 to-pink-400/40 rounded-full blur-sm animate-float opacity-50" style={{ animationDelay: '1s' }} />
+
+                  {/* Navigation arrows */}
+                  {specialists.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); prevSpecialist(); }}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                      >
+                        <ChevronLeft className="w-3 h-3" />
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); nextSpecialist(); }}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                      >
+                        <ChevronRight className="w-3 h-3" />
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                {/* Specialist Info */}
+                <div className="p-3 space-y-2">
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-200 transition-colors duration-300">
+                      {currentSpec.name}
+                    </h3>
+                    <p className="text-blue-300 font-medium text-sm">
+                      {currentSpec.specialty}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs text-slate-300">
+                    <div className="flex items-center space-x-1">
+                      <MapPin className="w-3 h-3" />
+                      <span>{currentSpec.location}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <GraduationCap className="w-3 h-3" />
+                      <span>{currentSpec.experience}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-slate-300 text-xs leading-relaxed line-clamp-2">
+                    {currentSpec.description.length > 80
+                      ? `${currentSpec.description.substring(0, 80)}...`
+                      : currentSpec.description
+                    }
                   </p>
-                </div>
-              </div>
-            </LiquidGlassCard>
 
-            {/* Trust Indicators Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2 xl:gap-3">
-              <LiquidGlassCard 
-                variant="light" 
-                intensity="subtle"
-                className="bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all duration-300 group"
-                padding="0.5rem 0.25rem"
-              >
-                <div className="space-y-1 sm:space-y-1 xl:space-y-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 xl:w-8 xl:h-8 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 xl:w-4 xl:h-4 text-blue-400" />
+                  {/* Approaches */}
+                  <div className="flex gap-1">
+                    {currentSpec.approaches.slice(0, 3).map((approach, index) => (
+                      <span
+                        key={index}
+                        className="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full border border-blue-500/30"
+                      >
+                        {approach.split(' ')[0]}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="text-white font-medium text-xs sm:text-xs xl:text-sm">100% Sigiloso</h4>
-                  </div>
+
+                  {/* CTA Button */}
+                  <LiquidGlassButton
+                    variant="gradient"
+                    size="sm"
+                    onClick={() => router.push('/alexbassan')}
+                    className="w-full flex items-center justify-center space-x-2 mt-2 text-sm"
+                  >
+                    <span>Conhecer Especialista</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </LiquidGlassButton>
                 </div>
               </LiquidGlassCard>
 
-              <LiquidGlassCard 
-                variant="light" 
-                intensity="subtle"
-                className="bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all duration-300 group"
-                padding="0.5rem 0.25rem"
-              >
-                <div className="space-y-1 sm:space-y-1 xl:space-y-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 xl:w-8 xl:h-8 mx-auto bg-green-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Award className="w-2.5 h-2.5 sm:w-3 sm:h-3 xl:w-4 xl:h-4 text-green-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium text-xs sm:text-xs xl:text-sm">Certificado CRP</h4>
-                  </div>
+              {/* Carousel Indicators */}
+              {specialists.length > 1 && (
+                <div className="flex justify-center space-x-2 mt-3">
+                  {specialists.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSpecialist(index)}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        index === currentSpecialist
+                          ? 'bg-gradient-to-r from-blue-400 to-purple-400 w-5'
+                          : 'bg-white/30 hover:bg-white/50'
+                      }`}
+                    />
+                  ))}
                 </div>
-              </LiquidGlassCard>
+              )}
 
-              <LiquidGlassCard 
-                variant="light" 
-                intensity="subtle"
-                className="bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all duration-300 group"
-                padding="0.5rem 0.25rem"
-              >
-                <div className="space-y-1 sm:space-y-1 xl:space-y-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 xl:w-8 xl:h-8 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3 xl:w-4 xl:h-4 text-purple-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium text-xs sm:text-xs xl:text-sm">Suporte 24/7</h4>
-                  </div>
-                </div>
-              </LiquidGlassCard>
-
-              <LiquidGlassCard 
-                variant="light" 
-                intensity="subtle"
-                className="bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all duration-300 group"
-                padding="0.5rem 0.25rem"
-              >
-                <div className="space-y-1 sm:space-y-1 xl:space-y-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 xl:w-8 xl:h-8 mx-auto bg-yellow-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Heart className="w-2.5 h-2.5 sm:w-3 sm:h-3 xl:w-4 xl:h-4 text-yellow-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-medium text-xs sm:text-xs xl:text-sm">Cuidado Humano</h4>
-                  </div>
-                </div>
-              </LiquidGlassCard>
-            </div>
-
-            {/* Professional Card */}
-            <div className="mt-6">
-              <LiquidGlassCard 
-                variant="light" 
-                intensity="subtle"
-                className="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
-                padding="1rem"
-                interactive={true}
-                onClick={() => router.push('/alexbassan')}
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">AB</span>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-white font-semibold text-sm">Conheça Alex Bassan</h4>
-                    <p className="text-slate-300 text-xs">Psicólogo Clínico especializado em terapia familiar e intervenções comportamentais</p>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-blue-300 group-hover:translate-x-1 transition-transform duration-300" />
-                </div>
-              </LiquidGlassCard>
             </div>
           </div>
         </div>

@@ -4,12 +4,15 @@ import React from 'react';
 
 interface LiquidGlassButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'gradient' | 'elevated' | 'minimal';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
+  loading?: boolean;
   onClick?: () => void;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
+  glowEffect?: boolean;
+  shimmerEffect?: boolean;
 }
 
 const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
@@ -17,9 +20,12 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   variant = 'primary',
   size = 'md',
   disabled = false,
+  loading = false,
   onClick,
   className = '',
   type = 'button',
+  glowEffect = false,
+  shimmerEffect = false,
 }) => {
 
   // Configurações por tamanho
@@ -66,9 +72,21 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
     textDecoration: 'none',
     userSelect: 'none',
     WebkitTapHighlightColor: 'transparent',
-    color: variant === 'primary' ? '#ffffff' : 
-           variant === 'secondary' ? '#f8fafc' : 
-           '#ffffff',
+    // Dynamic background based on variant
+    background: variant === 'primary' ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(99, 102, 241, 0.8) 100%)' :
+                variant === 'secondary' ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.8) 0%, rgba(147, 51, 234, 0.8) 100%)' :
+                variant === 'gradient' ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)' :
+                variant === 'elevated' ? 'rgba(255, 255, 255, 0.15)' :
+                variant === 'minimal' ? 'transparent' :
+                'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    color: '#ffffff',
+    // Dynamic box shadow based on variant
+    boxShadow: variant === 'elevated' ? '0 12px 48px rgba(0, 0, 0, 0.25), 0 0 24px rgba(59, 130, 246, 0.1)' :
+               variant === 'gradient' ? '0 8px 32px rgba(59, 130, 246, 0.2)' :
+               variant === 'primary' ? '0 4px 16px rgba(59, 130, 246, 0.3)' :
+               variant === 'secondary' ? '0 4px 16px rgba(168, 85, 247, 0.3)' :
+               '0 2px 8px rgba(0, 0, 0, 0.1)',
   };
 
   const combinedClassName = `
@@ -76,6 +94,9 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
     glass-button-${variant}
     glass-button-${size}
     ${disabled ? 'glass-button-disabled' : 'glass-button-interactive'}
+    ${glowEffect ? 'glow' : ''}
+    ${shimmerEffect ? 'shimmer' : ''}
+    ${loading ? 'glass-button-loading' : ''}
     ${className}
   `.trim();
 
@@ -112,19 +133,33 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
       className={combinedClassName}
       style={buttonStyle}
       onClick={handleClick}
-      disabled={disabled}
+      disabled={disabled || loading}
     >
       {/* Liquid Glass shimmer effect */}
-      <div className="glass-button-shimmer" />
-      
+      {shimmerEffect && (
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer" />
+      )}
+
+      {/* Glow effect */}
+      {glowEffect && (
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-[inherit] blur-lg opacity-0 hover:opacity-100 transition-opacity duration-500" />
+      )}
+
       {/* Content with proper z-index */}
-      <span className="glass-button-content">
-        {children}
+      <span className="glass-button-content relative z-10">
+        {loading ? (
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <span>Carregando...</span>
+          </div>
+        ) : (
+          children
+        )}
       </span>
-      
+
       {/* Hover effect overlay */}
-      {!disabled && (
-        <div className="glass-button-hover" />
+      {!disabled && !loading && (
+        <div className="glass-button-hover absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-[inherit]" />
       )}
     </button>
   );

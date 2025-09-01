@@ -5,13 +5,15 @@ import React, { forwardRef } from 'react';
 interface LiquidGlassCardProps {
   children: React.ReactNode;
   className?: string;
-  variant?: 'light' | 'heavy' | 'gradient' | 'colored';
+  variant?: 'light' | 'heavy' | 'gradient' | 'colored' | 'elevated' | 'minimal';
   intensity?: 'subtle' | 'medium' | 'strong';
   interactive?: boolean;
   onClick?: () => void;
   style?: React.CSSProperties;
   padding?: string;
   cornerRadius?: number;
+  glowEffect?: boolean;
+  shimmerEffect?: boolean;
 }
 
 const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(function LiquidGlassCard({
@@ -24,6 +26,8 @@ const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(functio
   style,
   padding = '1.5rem',
   cornerRadius = 24,
+  glowEffect = false,
+  shimmerEffect = false,
   ...props
 }, ref) {
 
@@ -63,6 +67,19 @@ const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(functio
         backdropFilter: 'blur(25px)',
         boxShadow: '0 10px 40px rgba(59, 130, 246, 0.2)',
         border: '1px solid rgba(147, 51, 234, 0.2)',
+      },
+      elevated: {
+        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+        backdropFilter: 'blur(35px)',
+        boxShadow: '0 20px 80px rgba(0, 0, 0, 0.2), 0 0 40px rgba(59, 130, 246, 0.1)',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        transform: 'translateY(-4px)',
+      },
+      minimal: {
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
       }
     };
 
@@ -73,17 +90,20 @@ const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(functio
     };
 
     const multiplier = intensityMultipliers[intensity];
-    const variantStyle = variants[variant];
-    
+    const variantStyle = variants[variant as keyof typeof variants];
+
     // Aplicar multiplicador de intensidade
     if (variantStyle.boxShadow) {
       const shadowMatch = variantStyle.boxShadow.match(/rgba\(([^)]+)\)/);
       if (shadowMatch) {
-        const [r, g, b, a] = shadowMatch[1].split(',').map(s => parseFloat(s.trim()));
-        variantStyle.boxShadow = variantStyle.boxShadow.replace(
-          /rgba\([^)]+\)/,
-          `rgba(${r}, ${g}, ${b}, ${(a * multiplier).toFixed(2)})`
-        );
+        const rgbaValues = shadowMatch[1].split(',').map((s: string) => parseFloat(s.trim()));
+        if (rgbaValues.length >= 4) {
+          const [r, g, b, a] = rgbaValues;
+          variantStyle.boxShadow = variantStyle.boxShadow.replace(
+            /rgba\([^)]+\)/,
+            `rgba(${r}, ${g}, ${b}, ${(a * multiplier).toFixed(2)})`
+          );
+        }
       }
     }
 
@@ -97,10 +117,12 @@ const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(functio
   };
 
   const glassStyles = getGlassStyles();
-  
+
   const combinedClassName = `
     glass-card
-    ${interactive ? 'glass-interactive cursor-pointer' : ''}
+    ${interactive ? 'glass-interactive cursor-pointer hover:scale-[1.02] active:scale-[0.98]' : ''}
+    ${glowEffect ? 'glow' : ''}
+    ${shimmerEffect ? 'shimmer' : ''}
     ${className}
   `.trim();
 
@@ -113,16 +135,23 @@ const LiquidGlassCard = forwardRef<HTMLDivElement, LiquidGlassCardProps>(functio
       {...props}
     >
       {/* Glass shimmer effect */}
-      <div className="glass-shimmer" />
-      
+      {shimmerEffect && (
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer" />
+      )}
+
+      {/* Glow effect */}
+      {glowEffect && (
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-[inherit] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      )}
+
       {/* Content */}
       <div className="relative z-10">
         {children}
       </div>
-      
+
       {/* Interactive hover effect */}
       {interactive && (
-        <div className="glass-hover-effect" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-[inherit]" />
       )}
     </div>
   );
