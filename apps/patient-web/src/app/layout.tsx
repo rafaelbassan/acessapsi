@@ -2,8 +2,6 @@ import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClientOnlyErrorBoundary } from '../components/ClientOnlyErrorBoundary'
-import { StagewiseToolbar } from '@stagewise/toolbar-next'
-import { ReactPlugin } from '@stagewise-plugins/react'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,11 +22,6 @@ export default function RootLayout({
         <ClientOnlyErrorBoundary>
           {children}
         </ClientOnlyErrorBoundary>
-        <StagewiseToolbar
-          config={{
-            plugins: [ReactPlugin],
-          }}
-        />
       </body>
     </html>
   )

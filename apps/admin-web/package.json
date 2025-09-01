@@ -33,8 +33,6 @@
     "zod": "^3.22.0"
   },
   "devDependencies": {
-    "@stagewise-plugins/react": "0.4.9",
-    "@stagewise/toolbar-next": "0.4.9",
     "eslint": "^8",
     "eslint-config-next": "15.3.3",
     "rimraf": "^5.0.0",

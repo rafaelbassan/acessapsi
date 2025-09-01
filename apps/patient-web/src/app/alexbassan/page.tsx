@@ -72,17 +72,9 @@ export default function AlexBassanPage() {
             </div>
             
             <div className="text-slate-200 space-y-4 leading-relaxed">
+              <h3 className="text-2xl font-bold text-blue-300 mb-4">Alex Bassan - Psicólogo Clínico</h3>
               <p>
-                Alex Bassan é formado em <span className="text-blue-300 font-semibold">Psicologia pela Universidade Paulista (UNIP)</span> e atua na área clínica e social desde <span className="text-purple-300 font-semibold">2014</span>.
-              </p>
-              <p>
-                É especialista em <span className="text-blue-300 font-semibold">Psicologia Sistêmica</span> e possui formação em <span className="text-purple-300 font-semibold">Análise do Comportamento Aplicada</span>.
-              </p>
-              <p>
-                Desde 2019, está inserido no programa de cursos integrados em <span className="text-blue-300 font-semibold">Psicologia Positiva</span>, mantendo-se atualizado com as mais recentes abordagens terapêuticas.
-              </p>
-              <p>
-                Utiliza jogos para o desenvolvimento socioemocional, acreditando no poder do brincar como ferramenta terapêutica. Atualmente, integra o corpo clínico da <span className="text-purple-300 font-semibold">Clínica Raízes em Campinas/SP</span>.
+                Com mais de 10 anos de experiência, atuo com foco no bem-estar e no desenvolvimento humano de crianças, adolescentes, adultos, casais e famílias. Trabalho com atendimentos presenciais e online na região de Campinas e também atuo em contextos sociais e empresariais. Minha prática é humanizada, baseada em evidências e orientada para resultados concretos e observáveis na vida dos meus pacientes.
               </p>
             </div>
           </div>
@@ -103,33 +95,106 @@ export default function AlexBassanPage() {
                   <span>Formação Acadêmica</span>
                 </h3>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                  <p className="text-slate-200">• Graduação em Psicologia - UNIP (2012)</p>
+                  <p className="text-slate-200">• Bacharel em Psicologia — Universidade Paulista (UNIP)</p>
                 </div>
               </div>
               
               <div className="space-y-3">
                 <h3 className="text-xl font-semibold text-purple-300 flex items-center space-x-2">
                   <Zap className="w-5 h-5" />
-                  <span>Especializações</span>
+                  <span>Pós-Graduações</span>
                 </h3>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10 space-y-2">
-                  <p className="text-slate-200">• Psicologia Sistêmica</p>
-                  <p className="text-slate-200">• Análise do Comportamento Aplicada</p>
-                  <p className="text-slate-200">• Psicologia Positiva (desde 2019)</p>
+                  <p className="text-slate-200">• Pós-graduado em Psicologia Sistêmica: Atendimento a Casais e Famílias (UNIARA)</p>
+                  <p className="text-slate-200">• Pós-graduando em Intervenções da Análise do Comportamento Aplicada (ABA)</p>
+                  <p className="text-slate-200">• Pós-graduando em Neuropsicologia</p>
                 </div>
               </div>
 
               <div className="space-y-3">
                 <h3 className="text-xl font-semibold text-green-300 flex items-center space-x-2">
                   <Heart className="w-5 h-5" />
-                  <span>Áreas de Atuação</span>
+                  <span>Abordagens Terapêuticas</span>
                 </h3>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10 space-y-2">
-                  <p className="text-slate-200">• Psicologia Clínica</p>
-                  <p className="text-slate-200">• Psicologia Social</p>
-                  <p className="text-slate-200">• Desenvolvimento Socioemocional</p>
-                  <p className="text-slate-200">• Ludoterapia</p>
+                  <p className="text-slate-200">• TCC: terapia prática para identificar e modificar padrões de pensamento e comportamento que mantêm ansiedade e depressão.</p>
+                  <p className="text-slate-200">• ABA: uso de estratégias baseadas em análise do comportamento para desenvolvimento de habilidades, especialmente em TEA e intervenções com crianças.</p>
+                  <p className="text-slate-200">• Terapia Sistêmica: foco em relacionamentos e dinâmicas familiares — indicada para casais e famílias com conflitos e dificuldades de comunicação.</p>
+                  <p className="text-slate-200">• Integro análise de perfil da personalidade e técnicas da Psicologia Positiva para promover habilidades e recursos do paciente.</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Grid - Specialties and Differentials */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* Specialties Section */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-xl">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-white">O que Posso te Ajudar</h2>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-blue-300 mb-2">Terapia para Casais e Famílias</h4>
+                <p className="text-slate-200">Melhoria da comunicação, resolução de conflitos e reorganização de papéis.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-green-300 mb-2">Tratamento de Ansiedade e Depressão</h4>
+                <p className="text-slate-200">Adultos e adolescentes — uso de TCC para reduzir sintomas e retomar o controle.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-purple-300 mb-2">Intervenções em TEA e Paralisia Cerebral</h4>
+                <p className="text-slate-200">Estratégias ABA e apoio ao desenvolvimento de habilidades sociais e comunicativas.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-yellow-300 mb-2">Atendimento a Crianças, Adolescentes e Adultos</h4>
+                <p className="text-slate-200">Acompanhamento individualizado para cada fase da vida.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-indigo-300 mb-2">Avaliações Psicológicas</h4>
+                <p className="text-slate-200">Diagnósticos abrangentes, escolares, ocupacionais e de personalidade.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-pink-300 mb-2">Supervisão Profissional</h4>
+                <p className="text-slate-200">Atuação com supervisão de atendimentos e equipes desde 2014.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Differentials Section */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-xl">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                <Award className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-white">Por que me Escolher</h2>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-yellow-300 mb-2">Experiência Prática</h4>
+                <p className="text-slate-200">Mais de 10 anos com acompanhamentos regulares e resultados monitorados.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-blue-300 mb-2">Escuta Qualificada e Atendimento Humanizado</h4>
+                <p className="text-slate-200">Garantia de segurança e acolhimento para criar uma conexão terapêutica efetiva.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-purple-300 mb-2">Comunicação Aumentativa e Alternativa (CAA)</h4>
+                <p className="text-slate-200">Uso quando indicado para trabalhar com diferentes necessidades de comunicação.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-green-300 mb-2">Abordagem Integrativa</h4>
+                <p className="text-slate-200">Combino TCC, ABA e Sistêmica conforme necessidades específicas.</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <h4 className="text-lg font-semibold text-indigo-300 mb-2">Foco em Metas Mensuráveis</h4>
+                <p className="text-slate-200">Baseada em evidência e orientada para resultados concretos.</p>
               </div>
             </div>
           </div>
@@ -141,39 +206,43 @@ export default function AlexBassanPage() {
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-400 to-pink-500 flex items-center justify-center">
               <Mail className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-3xl font-bold text-white">Informações de Contato</h2>
+            <h2 className="text-3xl font-bold text-white">Agende sua Consulta</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-slate-200">
-                <Mail className="w-5 h-5 text-blue-300" />
-                <span><strong className="text-white">Email:</strong> alex.bassan@acessapsi.com</span>
+                <Phone className="w-5 h-5 text-green-300" />
+                <span><strong className="text-white">WhatsApp:</strong> (19) 98820-0585</span>
+              </div>
+              <div className="flex items-center space-x-3 text-slate-200">
+                <MapPin className="w-5 h-5 text-blue-300" />
+                <span><strong className="text-white">Endereço:</strong> Clínica Raízes, Rua Frei Antônio de Pádua, 1028, Campinas, SP</span>
               </div>
               <div className="flex items-center space-x-3 text-slate-200">
                 <Award className="w-5 h-5 text-purple-300" />
                 <span><strong className="text-white">CRP:</strong> 06/115097</span>
               </div>
-              <div className="flex items-center space-x-3 text-slate-200">
-                <Phone className="w-5 h-5 text-green-300" />
-                <span><strong className="text-white">WhatsApp:</strong> (19) 98820-0585</span>
-              </div>
             </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-slate-200">
                 <Calendar className="w-5 h-5 text-indigo-300" />
-                <span><strong className="text-white">Experiência:</strong> Desde 2014</span>
+                <span><strong className="text-white">Modalidades:</strong> Presencial e Online</span>
               </div>
               <div className="flex items-center space-x-3 text-slate-200">
-                <MapPin className="w-5 h-5 text-pink-300" />
-                <span><strong className="text-white">Local:</strong> Clínica Raízes - Campinas/SP</span>
+                <Heart className="w-5 h-5 text-pink-300" />
+                <span><strong className="text-white">Opções:</strong> Avulso, Pacote Mensal, Pacote Semestral</span>
+              </div>
+              <div className="flex items-center space-x-3 text-slate-200">
+                <Mail className="w-5 h-5 text-yellow-300" />
+                <span><strong className="text-white">Email:</strong> alex.bassan@acessapsi.com</span>
               </div>
             </div>
           </div>
 
           {/* Quick Actions */}
           <div className="mt-8 pt-6 border-t border-white/20">
-            <h3 className="text-xl font-semibold text-white mb-4">Entre em contato agora:</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">Agende uma avaliação inicial para alinharmos objetivos e escolher a melhor abordagem — entre em contato pelo WhatsApp.</h3>
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={handleWhatsAppClick}

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import LiquidGlassCard from './LiquidGlassCard';
 import LiquidGlassButton from './LiquidGlassButton';
+import { useRouter } from 'next/navigation';
 import { 
   ArrowRight, 
   Calendar, 
@@ -23,6 +24,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsVisible(true);
@@ -226,9 +228,32 @@ export default function HeroSection() {
                 </div>
               </LiquidGlassCard>
             </div>
+
+            {/* Professional Card */}
+            <div className="mt-6">
+              <LiquidGlassCard 
+                variant="light" 
+                intensity="subtle"
+                className="bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+                padding="1rem"
+                interactive={true}
+                onClick={() => router.push('/alexbassan')}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">AB</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-white font-semibold text-sm">Conheça Alex Bassan</h4>
+                    <p className="text-slate-300 text-xs">Psicólogo Clínico especializado em terapia familiar e intervenções comportamentais</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-blue-300 group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+              </LiquidGlassCard>
+            </div>
           </div>
         </div>
       </div>
     </section>
   )
-} 
+}
