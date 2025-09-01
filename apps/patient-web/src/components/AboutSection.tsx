@@ -188,7 +188,7 @@ const AboutSection = () => {
                 </h3>
                 
                 <p className="text-neutral-300 leading-relaxed">
-                  Fundada em 2019, o Portal Psi nasceu da visão de democratizar o acesso à 
+                  Fundada em 2025, o Acessa Psi nasceu da visão de democratizar o acesso à 
                   saúde mental de qualidade. Combinamos a tradição da psicologia clínica 
                   com inovação tecnológica para criar experiências terapêuticas transformadoras.
                 </p>

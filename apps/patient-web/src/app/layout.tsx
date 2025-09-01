@@ -9,7 +9,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Portal Psi - Clínica de Psicologia',
+  title: 'Acessa Psi',
   description: 'Cuidado psicológico especializado para o seu bem-estar',
 }
 
