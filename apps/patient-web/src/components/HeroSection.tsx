@@ -36,7 +36,7 @@ const specialists: Specialist[] = [
     name: "Alex Gustavo Bassan",
     specialty: "Psicólogo Clínico",
     experience: "11 anos de experiência",
-    image: "/api/placeholder/300/300",
+    image: "/images/AlexBassan.jpeg",
     rating: 4.9,
     reviews: 85,
     description: "Especialista em Psicologia Sistêmica e Análise do Comportamento Aplicada. Utiliza jogos para desenvolvimento socioemocional e mantém formação continuada em Psicologia Positiva.",
@@ -208,11 +208,13 @@ export default function HeroSection() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-2xl">
-                      <span className="text-white font-bold text-2xl">
-                        {currentSpec.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
+                    <Image
+                      src={currentSpec.image}
+                      alt={currentSpec.name}
+                      fill
+                      className="object-cover rounded-lg"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                   </div>
 
                   {/* Floating elements */}
