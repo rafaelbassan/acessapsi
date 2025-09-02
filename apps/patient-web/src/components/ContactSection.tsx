@@ -144,14 +144,14 @@ const ContactSection = () => {
             </span>
           </LiquidGlassCard>
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
             Estamos aqui para
-            <span className="block bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               ajudar você
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Dê o primeiro passo rumo ao seu bem-estar. Nossa equipe está pronta para 
             acolhê-lo e oferecer o suporte que você precisa.
           </p>
@@ -178,13 +178,13 @@ const ContactSection = () => {
               <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${info.gradient} flex items-center justify-center`}>
                 {React.createElement(info.icon, { className: "w-8 h-8 text-white" })}
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-slate-800 mb-2">
                 {info.title}
               </h3>
-              <p className="text-neutral-300 font-medium mb-1">
+              <p className="text-slate-600 font-medium mb-1">
                 {info.value}
               </p>
-              <p className="text-neutral-400 text-sm">
+              <p className="text-slate-500 text-sm">
                 {info.description}
               </p>
             </LiquidGlassCard>
@@ -210,14 +210,14 @@ const ContactSection = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-6">
                   Vamos conversar sobre seu bem-estar?
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-neutral-300 text-sm font-medium mb-2">
+                      <label className="block text-slate-600 text-sm font-medium mb-2">
                         Nome completo
                       </label>
                       <input
@@ -231,7 +231,7 @@ const ContactSection = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-neutral-300 text-sm font-medium mb-2">
+                      <label className="block text-slate-600 text-sm font-medium mb-2">
                         E-mail
                       </label>
                       <input
@@ -248,7 +248,7 @@ const ContactSection = () => {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-neutral-300 text-sm font-medium mb-2">
+                      <label className="block text-slate-600 text-sm font-medium mb-2">
                         Telefone
                       </label>
                       <input
@@ -262,7 +262,7 @@ const ContactSection = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-neutral-300 text-sm font-medium mb-2">
+                      <label className="block text-slate-600 text-sm font-medium mb-2">
                         Serviço de interesse
                       </label>
                       <select
@@ -283,7 +283,7 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label className="block text-neutral-300 text-sm font-medium mb-2">
+                    <label className="block text-slate-600 text-sm font-medium mb-2">
                       Mensagem
                     </label>
                     <textarea
@@ -322,8 +322,8 @@ const ContactSection = () => {
               className="p-6 bg-white/5 border border-white/10"
               cornerRadius={24}
             >
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center space-x-2">
-                <Calendar className="w-6 h-6 text-blue-400" />
+              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center space-x-2">
+                <Calendar className="w-6 h-6 text-blue-600" />
                 <span>Ações Rápidas</span>
               </h3>
               <div className="space-y-3">
@@ -361,25 +361,25 @@ const ContactSection = () => {
               className="p-6 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30"
               cornerRadius={24}
             >
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-slate-800 mb-4">
                 Perguntas Frequentes
               </h3>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <h4 className="text-white font-medium">Como funciona a primeira consulta?</h4>
-                  <p className="text-neutral-300 text-sm">
+                  <h4 className="text-slate-800 font-medium">Como funciona a primeira consulta?</h4>
+                  <p className="text-slate-600 text-sm">
                     A primeira consulta é um momento de acolhimento onde conhecemos sua história e definimos juntos o melhor caminho.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-white font-medium">Vocês atendem por convênio?</h4>
-                  <p className="text-neutral-300 text-sm">
+                  <h4 className="text-slate-800 font-medium">Vocês atendem por convênio?</h4>
+                  <p className="text-slate-600 text-sm">
                     Sim, trabalhamos com os principais convênios médicos. Entre em contato para verificar sua cobertura.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-white font-medium">Fazem atendimento online?</h4>
-                  <p className="text-neutral-300 text-sm">
+                  <h4 className="text-slate-800 font-medium">Fazem atendimento online?</h4>
+                  <p className="text-slate-600 text-sm">
                     Oferecemos tanto atendimento presencial quanto online, conforme sua preferência e necessidade.
                   </p>
                 </div>
@@ -393,7 +393,7 @@ const ContactSection = () => {
               className="p-6 bg-white/5 border border-white/10"
               cornerRadius={24}
             >
-              <h3 className="text-xl font-bold text-white mb-4">
+              <h3 className="text-xl font-bold text-slate-800 mb-4">
                 Siga-nos nas Redes Sociais
               </h3>
               <div className="flex space-x-4">
@@ -424,11 +424,11 @@ const ContactSection = () => {
           >
             <div className="flex items-center justify-center space-x-3 mb-4">
               <Heart className="w-6 h-6 text-red-400" />
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-xl font-bold text-slate-800">
                 Precisa de Ajuda Urgente?
               </h3>
             </div>
-            <p className="text-neutral-300 mb-4">
+            <p className="text-slate-600 mb-4">
               Se você está passando por uma crise, não hesite em buscar ajuda imediatamente.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

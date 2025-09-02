@@ -41,64 +41,67 @@ const AboutSection = () => {
   const values = [
     {
       icon: Heart,
-      title: "Cuidado Humano",
-      description: "Tratamento personalizado com foco no bem-estar integral de cada paciente.",
-      gradient: "from-rose-500 to-pink-600"
+      title: "Acolhimento Terapêutico",
+      description: "Ambiente seguro e empático onde você se sente verdadeiramente ouvido e compreendido em sua singularidade.",
+      gradient: "from-therapy-500 to-therapy-600"
     },
     {
       icon: Shield,
-      title: "Sigilo Profissional",
-      description: "Ambiente seguro e confidencial onde você pode se expressar livremente.",
-      gradient: "from-blue-500 to-indigo-600"
+      title: "Sigilo e Confidencialidade",
+      description: "Garantia absoluta de privacidade e confidencialidade, seguindo rigorosamente o código de ética profissional.",
+      gradient: "from-trust-500 to-trust-600"
     },
     {
       icon: Target,
-      title: "Resultados Efetivos",
-      description: "Metodologias comprovadas para alcançar mudanças duradouras.",
-      gradient: "from-green-500 to-emerald-600"
+      title: "Evidências Científicas",
+      description: "Tratamentos baseados em pesquisas atuais e abordagens terapêuticas comprovadamente eficazes.",
+      gradient: "from-wisdom-500 to-wisdom-600"
     },
     {
       icon: UserCheck,
-      title: "Profissionais Qualificados",
-      description: "Equipe especializada com formação em renomadas instituições.",
-      gradient: "from-purple-500 to-violet-600"
+      title: "Especialização Clínica",
+      description: "Psicólogos com formação continuada e especialização em diferentes áreas da psicologia clínica.",
+      gradient: "from-therapy-600 to-trust-600"
     }
   ];
 
   const achievements = [
     {
-      number: "1000+",
+      number: "500+",
       title: "Vidas Transformadas",
-      description: "Pessoas que encontraram equilíbrio emocional",
+      description: "Pessoas que encontraram bem-estar através da psicoterapia",
       icon: Users
     },
     {
-      number: "98%",
-      title: "Taxa de Satisfação",
-      description: "Pacientes que recomendam nossos serviços",
+      number: "95%",
+      title: "Satisfação Terapêutica",
+      description: "Taxa de melhora relatada pelos pacientes em acompanhamento",
       icon: Star
     },
     {
-      number: "15+",
-      title: "Anos de Experiência",
-      description: "Dedicação ao cuidado da saúde mental",
+      number: "11+",
+      title: "Anos de Dedicação",
+      description: "Experiência contínua em psicologia clínica e terapêutica",
       icon: Award
     },
     {
-      number: "24/7",
-      title: "Suporte Disponível",
-      description: "Atendimento quando você precisar",
-      icon: Clock
+      number: "CRP",
+      title: "Registro Ativo",
+      description: "Profissionais registrados no Conselho Regional de Psicologia",
+      icon: Shield
     }
   ];
 
   const specialties = [
-    "Ansiedade e Transtornos do Humor",
-    "Terapia de Casal e Relacionamentos",
-    "Psicologia Infantil e Adolescente",
+    "Psicologia Clínica e Psicoterapia",
+    "Terapia Cognitivo-Comportamental",
+    "Psicologia Sistêmica Familiar",
+    "Psicologia Infantil e do Adolescente",
+    "Tratamento de Ansiedade e Depressão",
+    "Psicologia do Luto e Perda",
+    "Orientação Vocacional e Profissional",
     "Desenvolvimento Pessoal",
-    "Tratamento de Traumas",
-    "Transtornos Alimentares"
+    "Terapia de Casal"
   ];
 
   return (
@@ -126,16 +129,16 @@ const AboutSection = () => {
             </span>
           </LiquidGlassCard>
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Transformamos vidas através do
-            <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              cuidado psicológico especializado
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+            Cuidado psicológico que
+            <span className="block bg-gradient-to-r from-therapy-600 to-trust-600 bg-clip-text text-transparent">
+              transforma vidas
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            Nossa missão é oferecer tratamento psicológico de excelência, 
-            combinando expertise profissional com acolhimento humano em um ambiente seguro e moderno.
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Oferecemos psicoterapia de qualidade em um ambiente acolhedor e seguro, 
+            onde cada pessoa é respeitada em sua singularidade e acompanhada com dedicação em sua jornada de bem-estar.
           </p>
         </div>
 
@@ -154,10 +157,10 @@ const AboutSection = () => {
               <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${value.gradient} flex items-center justify-center`}>
                 {React.createElement(value.icon, { className: "w-8 h-8 text-white" })}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-xl font-bold text-slate-800 mb-3">
                 {value.title}
               </h3>
-              <p className="text-neutral-300 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {value.description}
               </p>
             </LiquidGlassCard>
@@ -183,14 +186,14 @@ const AboutSection = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  Pioneiros em Saúde Mental Digital
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
+                  Nossa Abordagem Terapêutica
                 </h3>
                 
-                <p className="text-neutral-300 leading-relaxed">
-                  Fundada em 2025, o Acessa Psi nasceu da visão de democratizar o acesso à 
-                  saúde mental de qualidade. Combinamos a tradição da psicologia clínica 
-                  com inovação tecnológica para criar experiências terapêuticas transformadoras.
+                <p className="text-slate-600 leading-relaxed">
+                  Acreditamos que cada pessoa possui recursos internos únicos para seu crescimento. 
+                  Nossa equipe utiliza abordagens baseadas em evidências científicas, sempre 
+                  respeitando o ritmo e as necessidades individuais de cada paciente.
                 </p>
                 
                 <div className="space-y-3">
@@ -202,7 +205,7 @@ const AboutSection = () => {
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                      <span className="text-neutral-300">{item}</span>
+                      <span className="text-slate-600">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -226,13 +229,13 @@ const AboutSection = () => {
                     {React.createElement(achievement.icon, { className: "w-8 h-8 text-white" })}
                   </div>
                   <div className="flex-1">
-                    <div className="text-3xl font-bold text-white mb-1">
+                    <div className="text-3xl font-bold text-slate-800 mb-1">
                       {achievement.number}
                     </div>
-                    <div className="text-lg font-semibold text-blue-400 mb-1">
+                    <div className="text-lg font-semibold text-blue-600 mb-1">
                       {achievement.title}
                     </div>
-                    <div className="text-neutral-400 text-sm">
+                    <div className="text-slate-600 text-sm">
                       {achievement.description}
                     </div>
                   </div>
@@ -250,7 +253,7 @@ const AboutSection = () => {
             className="p-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30"
             cornerRadius={32}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-2xl font-bold text-slate-800 mb-6">
               Áreas de Especialização
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -260,7 +263,7 @@ const AboutSection = () => {
                   className="flex items-center space-x-3 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
                   <Zap className="w-5 h-5 text-yellow-400 flex-shrink-0" />
-                  <span className="text-neutral-300 font-medium">{specialty}</span>
+                  <span className="text-slate-600 font-medium">{specialty}</span>
                 </div>
               ))}
             </div>
@@ -275,10 +278,10 @@ const AboutSection = () => {
             className="max-w-2xl mx-auto p-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30"
             cornerRadius={32}
           >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 mb-4">
               Pronto para começar sua jornada?
             </h3>
-            <p className="text-neutral-300 mb-6">
+            <p className="text-slate-600 mb-6">
               Nossa equipe está preparada para acompanhá-lo em cada passo 
               rumo ao seu bem-estar emocional e crescimento pessoal.
             </p>

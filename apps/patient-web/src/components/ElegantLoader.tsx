@@ -69,7 +69,7 @@ export default function ElegantLoader({
     <div className={`flex flex-col items-center justify-center space-y-3 ${className}`}>
       {renderLoader()}
       {text && (
-        <p className="text-sm text-slate-300 animate-pulse">
+        <p className="text-sm text-slate-600 animate-pulse">
           {text}
         </p>
       )}

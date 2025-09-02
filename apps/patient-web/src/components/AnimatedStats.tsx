@@ -125,17 +125,17 @@ export default function AnimatedStats() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <TrendingUp className="w-5 h-5 text-green-400" />
-            <span className="text-sm font-medium text-green-300">Nossos Números</span>
+            <span className="text-sm font-medium text-green-600">Nossos Números</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
             Resultados que
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
               falam por si
             </span>
           </h2>
 
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Números que refletem nosso compromisso com a excelência no cuidado psicológico
           </p>
         </div>
@@ -179,14 +179,14 @@ export default function AnimatedStats() {
                   </div>
 
                   {/* Label */}
-                  <h3 className={`text-xl font-semibold text-white mb-2 transition-all duration-500 ${
+                  <h3 className={`text-xl font-semibold text-slate-800 mb-2 transition-all duration-500 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   }`}>
                     {stat.label}
                   </h3>
 
                   {/* Description */}
-                  <p className={`text-slate-300 text-sm transition-all duration-500 ${
+                  <p className={`text-slate-600 text-sm transition-all duration-500 ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   }`} style={{ transitionDelay: '200ms' }}>
                     {stat.description}
@@ -217,10 +217,10 @@ export default function AnimatedStats() {
             intensity="strong"
             className="inline-block p-8 hover:scale-105 transition-all duration-300"
           >
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-xl font-semibold text-slate-800 mb-2">
               Pronto para começar sua jornada?
             </h3>
-            <p className="text-slate-300 mb-4">
+            <p className="text-slate-600 mb-4">
               Junte-se aos centenas de pacientes que transformaram suas vidas conosco
             </p>
             <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-8 rounded-xl hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">

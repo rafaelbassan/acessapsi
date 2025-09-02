@@ -76,11 +76,6 @@ export const mariaSilvaData = {
     email: "maria.silva@acessapsi.com",
     address: "Clínica Infantil, Rua das Flores, 123, São Paulo, SP"
   },
-  pricing: {
-    individual: "R$ 130,00",
-    couple: "R$ 180,00",
-    family: "R$ 220,00"
-  },
   testimonials: [
     {
       id: 1,

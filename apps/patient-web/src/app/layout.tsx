@@ -7,8 +7,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Acessa Psi',
-  description: 'Cuidado psicológico especializado para o seu bem-estar',
+  title: 'Acessa Psi - Psicologia Clínica Especializada',
+  description: 'Cuidado psicológico profissional e humanizado. Atendimento especializado em psicoterapia para adultos, adolescentes e casais. Agende sua consulta.',
 }
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" data-theme="light">
       <body className={inter.className}>
         <ClientOnlyErrorBoundary>
           {children}

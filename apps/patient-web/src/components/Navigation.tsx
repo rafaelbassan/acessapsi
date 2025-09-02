@@ -28,6 +28,8 @@ const Navigation = () => {
   const navItems = [
     { href: "#home", label: "Início" },
     { href: "#about", label: "Sobre" },
+    { href: "#benefits", label: "Benefícios" },
+    { href: "#how-it-works", label: "Como Funciona" },
     { href: "#professionals", label: "Equipe" },
     { href: "#contact", label: "Contato" }
   ];
@@ -50,19 +52,19 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
             
-            {/* Logo */}
+            {/* Professional Logo */}
             <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/40 transition-all duration-300 overflow-hidden">
+              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center">
                 <Image 
                   src="/images/logo_psi.png"
                   alt="Acessa Psi Logo"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
+                  width={32}
+                  height={32}
+                  className="w-6 h-6 object-contain"
                   priority
                 />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-slate-800">
                 Acessa Psi
               </span>
             </div>
@@ -73,10 +75,10 @@ const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-slate-300 hover:text-white transition-all duration-300 font-medium relative group px-3 py-2 rounded-lg hover:bg-white/5"
+                  className="text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium relative group px-3 py-2 rounded-lg hover:bg-blue-50"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                 </button>
               ))}
             </div>
@@ -89,27 +91,24 @@ const Navigation = () => {
                   const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços psicológicos.');
                   window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
                 }}
-                className="text-slate-300 hover:text-white transition-all duration-300 flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/10 group"
+                className="text-slate-700 hover:text-blue-600 transition-all duration-300 flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-blue-50 group"
               >
-                <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                <Phone className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-sm font-medium">(19) 98820-0585</span>
               </button>
               
-              <LiquidGlassButton 
-                variant="primary" 
-                size="sm"
+              <button 
                 onClick={() => scrollToSection('#contact')}
-                className="flex items-center space-x-2 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Agendar</span>
-              </LiquidGlassButton>
+                Agendar Consulta
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+              className="md:hidden w-10 h-10 rounded-xl bg-slate-100 backdrop-blur-sm border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-all duration-300"
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -130,12 +129,12 @@ const Navigation = () => {
         
         {/* Backdrop */}
         <div 
-          className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm"
+          className="absolute inset-0 bg-slate-100/90 backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
         
         {/* Menu Content */}
-        <div className={`absolute top-20 left-4 right-4 bg-nav-scrolled backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
+        <div className={`absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl p-6 shadow-2xl transition-all duration-300 ${
           isMobileMenuOpen 
             ? 'translate-y-0 scale-100' 
             : '-translate-y-4 scale-95'
@@ -147,7 +146,7 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="w-full text-left py-4 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-between group"
+                className="w-full text-left py-4 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 transition-all duration-300 flex items-center justify-between group"
               >
                 <span className="font-medium text-lg">{item.label}</span>
                 <ArrowRight className="w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
@@ -156,7 +155,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile CTA */}
-          <div className="space-y-3 pt-4 border-t border-white/10">
+          <div className="space-y-3 pt-4 border-t border-slate-200">
             <button 
               onClick={() => {
                 const phoneNumber = '5519988200585';
@@ -164,7 +163,7 @@ const Navigation = () => {
                 window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full py-4 px-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2 group"
+              className="w-full py-4 px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 transition-all duration-300 flex items-center justify-center space-x-2 group"
             >
               <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
               <span className="font-medium">(19) 98820-0585</span>

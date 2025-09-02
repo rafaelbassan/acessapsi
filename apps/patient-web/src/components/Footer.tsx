@@ -72,10 +72,10 @@ const Footer = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">AcessaPsi</h3>
+                <h3 className="text-2xl font-bold text-slate-800">AcessaPsi</h3>
               </div>
               
-              <p className="text-neutral-300 mb-6 leading-relaxed">
+              <p className="text-slate-600 mb-6 leading-relaxed">
                 Transformando vidas através do cuidado psicológico especializado. 
                 Mais de 15 anos dedicados ao seu bem-estar emocional.
               </p>
@@ -91,7 +91,7 @@ const Footer = () => {
                       aria-label={social.label}
                       className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center hover:scale-110 hover:bg-white/20 transition-all duration-300 group border border-white/10"
                     >
-                      <Icon className="w-5 h-5 text-neutral-300 group-hover:text-white transition-colors duration-300" />
+                      <Icon className="w-5 h-5 text-slate-600 group-hover:text-slate-800 transition-colors duration-300" />
                     </a>
                   );
                 })}
@@ -107,13 +107,13 @@ const Footer = () => {
               className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 h-full"
               cornerRadius={24}
             >
-              <h4 className="text-xl font-bold text-white mb-6">Nossos Serviços</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-6">Nossos Serviços</h4>
               <ul className="space-y-3">
                 {services.map((service, index) => (
                   <li key={index}>
                     <a 
                       href="#"
-                      className="text-neutral-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                      className="text-slate-600 hover:text-slate-800 transition-colors duration-300 flex items-center gap-2 group"
                     >
                       <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                       <span className="group-hover:translate-x-2 transition-transform duration-300">{service}</span>
@@ -132,13 +132,13 @@ const Footer = () => {
               className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 h-full"
               cornerRadius={24}
             >
-              <h4 className="text-xl font-bold text-white mb-6">Links Rápidos</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-6">Links Rápidos</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <a 
                       href={link.href}
-                      className="text-neutral-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                      className="text-slate-600 hover:text-slate-800 transition-colors duration-300 flex items-center gap-2 group"
                     >
                       <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                       <span className="group-hover:translate-x-2 transition-transform duration-300">{link.name}</span>
@@ -157,7 +157,7 @@ const Footer = () => {
               className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 h-full"
               cornerRadius={24}
             >
-              <h4 className="text-xl font-bold text-white mb-6">Contato</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-6">Contato</h4>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -165,7 +165,7 @@ const Footer = () => {
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-neutral-300 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       Rua das Flores, 123<br />
                       Centro, São Paulo - SP<br />
                       CEP: 01234-567
@@ -178,8 +178,8 @@ const Footer = () => {
                     <Phone className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-neutral-300">(11) 99999-9999</p>
-                    <p className="text-neutral-300">(11) 3333-3333</p>
+                    <p className="text-slate-600">(11) 99999-9999</p>
+                    <p className="text-slate-600">(11) 3333-3333</p>
                   </div>
                 </div>
 
@@ -187,7 +187,7 @@ const Footer = () => {
                   <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
-                  <p className="text-neutral-300">contato@acessapsi.com.br</p>
+                  <p className="text-slate-600">contato@acessapsi.com.br</p>
                 </div>
 
                 <div className="flex items-start gap-4">
@@ -195,7 +195,7 @@ const Footer = () => {
                     <Clock className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-neutral-300 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       Segunda à Sexta: 8h às 18h<br />
                       Sábado: 8h às 12h<br />
                       Domingo: Fechado
@@ -215,10 +215,10 @@ const Footer = () => {
             className="max-w-4xl mx-auto p-8 text-center bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20"
             cornerRadius={32}
           >
-            <h4 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h4 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">
               Receba Dicas de Bem-Estar
             </h4>
-            <p className="text-neutral-300 mb-6">
+            <p className="text-slate-600 mb-6">
               Inscreva-se em nossa newsletter e receba conteúdos exclusivos sobre saúde mental e bem-estar.
             </p>
             
@@ -251,13 +251,13 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center gap-6">
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors duration-300">
+              <a href="#" className="text-slate-500 hover:text-slate-800 transition-colors duration-300">
                 Política de Privacidade
               </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors duration-300">
+              <a href="#" className="text-slate-500 hover:text-slate-800 transition-colors duration-300">
                 Termos de Uso
               </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors duration-300">
+              <a href="#" className="text-slate-500 hover:text-slate-800 transition-colors duration-300">
                 Cookies
               </a>
             </div>

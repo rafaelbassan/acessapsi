@@ -55,11 +55,6 @@ interface ProfessionalData {
     email: string;
     address: string;
   };
-  pricing: {
-    individual: string;
-    couple: string;
-    family: string;
-  };
   testimonials: {
     id: number;
     name: string;
@@ -141,12 +136,12 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
       {/* Animated Particles Background */}
       <AnimatedParticles />
 
       {/* Navigation Menu */}
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 shadow-lg">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full px-6 py-3 shadow-lg">
         <div className="flex space-x-6">
           {[
             { id: 'hero', label: 'Início', icon: Heart },
@@ -161,7 +156,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
               className={`flex items-center space-x-2 px-3 py-2 rounded-full transition-all duration-300 ${
                 activeSection === id
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                  : 'text-slate-300 hover:text-white hover:bg-white/10'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -202,31 +197,31 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                               className="w-full h-full rounded-full object-cover"
                             />
                           ) : (
-                            <span className="text-6xl font-bold text-slate-300">
+                            <span className="text-6xl font-bold text-slate-700">
                               {professional.name.split(' ').map(n => n[0]).join('')}
                             </span>
                           )}
                         </div>
                         {/* Professional Badge Overlay */}
                         <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-2 border-4 border-slate-800">
-                          <CheckCircle className="w-6 h-6 text-white" />
+                          <CheckCircle className="w-6 h-6 text-slate-900" />
                         </div>
                       </div>
                     </div>
 
                     {/* Professional Information - Right Side */}
                     <div className="text-center lg:text-left flex-1">
-                      <h1 className="text-4xl md:text-5xl font-bold text-white mb-1">
+                      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-1">
                         {professional.name}
                       </h1>
-                      <p className="text-xl text-slate-300 font-medium mb-4">{professional.title}</p>
+                      <p className="text-xl text-slate-600 font-medium mb-4">{professional.title}</p>
                       <div className="space-y-2 mb-4">
-                        <p className="text-lg text-slate-400 flex items-center justify-center lg:justify-start">
-                          <Award className="w-5 h-5 mr-2 text-blue-400" />
+                        <p className="text-lg text-slate-500 flex items-center justify-center lg:justify-start">
+                          <Award className="w-5 h-5 mr-2 text-blue-600" />
                           {professional.crp}
                         </p>
-                        <p className="text-base text-slate-400 flex items-center justify-center lg:justify-start">
-                          <Clock className="w-4 h-4 mr-2 text-green-400" />
+                        <p className="text-base text-slate-500 flex items-center justify-center lg:justify-start">
+                          <Clock className="w-4 h-4 mr-2 text-green-600" />
                           {professional.experience}
                         </p>
                       </div>
@@ -262,7 +257,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         variant="secondary"
                         size="lg"
                         onClick={handleCallClick}
-                        className="flex items-center justify-center space-x-3 px-8 py-4 bg-transparent border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 font-medium transition-all duration-300 flex-1 sm:flex-initial"
+                        className="flex items-center justify-center space-x-3 px-8 py-4 bg-transparent border border-slate-600 text-slate-600 hover:text-slate-900 hover:border-slate-500 font-medium transition-all duration-300 flex-1 sm:flex-initial"
                       >
                         <Phone className="w-5 h-5" />
                         <span>Ligar Agora</span>
@@ -272,7 +267,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         variant="secondary"
                         size="lg"
                         onClick={() => window.open(`mailto:${professional.contact.email}`, '_self')}
-                        className="flex items-center justify-center space-x-3 px-8 py-4 bg-transparent border border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 font-medium transition-all duration-300 flex-1 sm:flex-initial"
+                        className="flex items-center justify-center space-x-3 px-8 py-4 bg-transparent border border-slate-600 text-slate-600 hover:text-slate-900 hover:border-slate-500 font-medium transition-all duration-300 flex-1 sm:flex-initial"
                       >
                         <Mail className="w-5 h-5" />
                         <span>Enviar Email</span>
@@ -296,9 +291,9 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
+                  <Award className="w-6 h-6 text-slate-900" />
                 </div>
-                <h2 className="text-3xl font-bold text-white">Experiência Profissional</h2>
+                <h2 className="text-3xl font-bold text-slate-900">Experiência Profissional</h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -308,7 +303,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                       <Clock className="w-5 h-5 text-blue-400" />
                       <span className="text-blue-300 font-semibold">Anos de Experiência</span>
                     </div>
-                    <p className="text-white text-2xl font-bold">{professional.experience}</p>
+                    <p className="text-slate-900 text-2xl font-bold">{professional.experience}</p>
                   </div>
 
                   <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl p-4 border border-green-400/20">
@@ -316,7 +311,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                       <Users className="w-5 h-5 text-green-400" />
                       <span className="text-green-300 font-semibold">Pacientes Atendidos</span>
                     </div>
-                    <p className="text-white text-2xl font-bold">+500</p>
+                    <p className="text-slate-900 text-2xl font-bold">+500</p>
                   </div>
                 </div>
 
@@ -326,7 +321,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                       <Heart className="w-5 h-5 text-orange-400" />
                       <span className="text-orange-300 font-semibold">Especialidades</span>
                     </div>
-                    <p className="text-white text-lg font-semibold">{professional.specializations.length} áreas de atuação</p>
+                    <p className="text-slate-900 text-lg font-semibold">{professional.specializations.length} áreas de atuação</p>
                   </div>
                 </div>
               </div>
@@ -346,9 +341,9 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
+                  <Award className="w-6 h-6 text-slate-900" />
                 </div>
-                <h2 className="text-3xl font-bold text-white">Qualificações</h2>
+                <h2 className="text-3xl font-bold text-slate-900">Qualificações</h2>
               </div>
 
               <div className="space-y-6">
@@ -393,16 +388,16 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
+                  <Users className="w-6 h-6 text-slate-900" />
                 </div>
-                <h2 className="text-3xl font-bold text-white">O que posso te ajudar</h2>
+                <h2 className="text-3xl font-bold text-slate-900">O que posso te ajudar</h2>
               </div>
 
               <div className="space-y-4">
                 {professional.specializations.map((spec, index) => (
                   <div key={index} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <h4 className="text-lg font-semibold text-blue-300 mb-2">{spec.title}</h4>
-                    <p className="text-slate-200">{spec.description}</p>
+                    <h4 className="text-lg font-semibold text-blue-600 mb-2">{spec.title}</h4>
+                    <p className="text-slate-700">{spec.description}</p>
                   </div>
                 ))}
               </div>
@@ -421,16 +416,16 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
+                  <Award className="w-6 h-6 text-slate-900" />
                 </div>
-                <h2 className="text-3xl font-bold text-white">Por que me escolher</h2>
+                <h2 className="text-3xl font-bold text-slate-900">Por que me escolher</h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
                 {professional.differentials.map((diff, index) => (
                   <div key={index} className="bg-white/5 rounded-xl p-4 border border-white/10">
-                    <h4 className="text-lg font-semibold text-yellow-300 mb-2">{diff.title}</h4>
-                    <p className="text-slate-200">{diff.description}</p>
+                    <h4 className="text-lg font-semibold text-yellow-600 mb-2">{diff.title}</h4>
+                    <p className="text-slate-700">{diff.description}</p>
                   </div>
                 ))}
               </div>
@@ -449,15 +444,15 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
             >
               <div className="flex items-center space-x-3 mb-8">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6 text-white" />
+                  <MessageCircle className="w-6 h-6 text-slate-900" />
                 </div>
-                <h2 className="text-3xl font-bold text-white">Perguntas Frequentes</h2>
+                <h2 className="text-3xl font-bold text-slate-900">Perguntas Frequentes</h2>
               </div>
 
               <div className="space-y-6">
                 <div className="bg-white/5 rounded-xl p-6 border border-white/10">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-3">Como funciona a primeira consulta?</h4>
-                  <p className="text-slate-200 leading-relaxed">A primeira sessão é dedicada ao acolhimento e avaliação inicial. Conversaremos sobre seus objetivos, histórico e expectativas para construir um plano terapêutico personalizado.</p>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-3">Como funciona a primeira consulta?</h4>
+                  <p className="text-slate-700 leading-relaxed">A primeira sessão é dedicada ao acolhimento e avaliação inicial. Conversaremos sobre seus objetivos, histórico e expectativas para construir um plano terapêutico personalizado.</p>
                 </div>
 
                 <div className="bg-white/5 rounded-xl p-6 border border-white/10">
@@ -483,8 +478,8 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
           {professional.testimonials.length > 0 && (
             <div className={`mb-16 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-white mb-4">Depoimentos</h2>
-                <p className="text-xl text-slate-300">O que meus pacientes dizem</p>
+                <h2 className="text-4xl font-bold text-slate-900 mb-4">Depoimentos</h2>
+                <p className="text-xl text-slate-600">O que meus pacientes dizem</p>
               </div>
 
               <div className="relative max-w-4xl mx-auto">
@@ -506,10 +501,10 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    <p className="text-lg font-semibold text-white mb-2">
+                    <p className="text-lg font-semibold text-slate-900 mb-2">
                       {professional.testimonials[currentTestimonial].name}
                     </p>
-                    <p className="text-blue-300">
+                    <p className="text-blue-600">
                       {professional.testimonials[currentTestimonial].treatment}
                     </p>
                   </div>
@@ -519,13 +514,13 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                     <>
                       <button
                         onClick={prevTestimonial}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-200 hover:bg-slate-300 rounded-full flex items-center justify-center text-slate-700 hover:text-slate-900 transition-all duration-300 hover:scale-110"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextTestimonial}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-200 hover:bg-slate-300 rounded-full flex items-center justify-center text-slate-700 hover:text-slate-900 transition-all duration-300 hover:scale-110"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -572,8 +567,8 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-white">Vamos Conversar?</h2>
-                  <p className="text-slate-300">Estou aqui para ajudar você</p>
+                  <h2 className="text-3xl font-bold text-slate-900">Vamos Conversar?</h2>
+                  <p className="text-slate-600">Estou aqui para ajudar você</p>
                 </div>
               </div>
 
@@ -585,11 +580,11 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         <MessageCircle className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-green-300 font-semibold">WhatsApp</p>
-                        <p className="text-white text-sm">Resposta em até 2h</p>
+                        <p className="text-green-600 font-semibold">WhatsApp</p>
+                        <p className="text-slate-900 text-sm">Resposta em até 2h</p>
                       </div>
                     </div>
-                    <p className="text-slate-200 ml-13">{professional.contact.whatsapp}</p>
+                    <p className="text-slate-700 ml-13">{professional.contact.whatsapp}</p>
                   </div>
 
                   <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-xl p-4 border border-blue-400/20">
@@ -598,11 +593,11 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         <MapPin className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-blue-300 font-semibold">Localização</p>
-                        <p className="text-white text-sm">Atendimento presencial</p>
+                        <p className="text-blue-600 font-semibold">Localização</p>
+                        <p className="text-slate-900 text-sm">Atendimento presencial</p>
                       </div>
                     </div>
-                    <p className="text-slate-200 ml-13">{professional.contact.address}</p>
+                    <p className="text-slate-700 ml-13">{professional.contact.address}</p>
                   </div>
                 </div>
 
@@ -613,11 +608,11 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         <Award className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-purple-300 font-semibold">Registro CRP</p>
-                        <p className="text-white text-sm">Profissional verificado</p>
+                        <p className="text-purple-600 font-semibold">Registro CRP</p>
+                        <p className="text-slate-900 text-sm">Profissional verificado</p>
                       </div>
                     </div>
-                    <p className="text-slate-200 ml-13">{professional.crp}</p>
+                    <p className="text-slate-700 ml-13">{professional.crp}</p>
                   </div>
 
                   <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-xl p-4 border border-orange-400/20">
@@ -626,81 +621,23 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                         <Clock className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-orange-300 font-semibold">Horário de Atendimento</p>
-                        <p className="text-white text-sm">Segunda a Sexta</p>
+                        <p className="text-orange-600 font-semibold">Horário de Atendimento</p>
+                        <p className="text-slate-900 text-sm">Segunda a Sexta</p>
                       </div>
                     </div>
-                    <p className="text-slate-200 ml-13">8h às 18h</p>
+                    <p className="text-slate-700 ml-13">8h às 18h</p>
                   </div>
                 </div>
               </div>
 
               {/* Pricing */}
-              <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-xl p-6 border border-white/10 mb-8">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
-                    <Award className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Investimento no seu Bem-Estar</h3>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                    <div className="relative bg-white/5 rounded-xl p-6 border border-blue-400/30 hover:border-blue-400/50 transition-all duration-300">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Users className="w-6 h-6 text-white" />
-                        </div>
-                        <p className="text-blue-300 font-semibold text-lg mb-2">Sessão Individual</p>
-                        <p className="text-3xl font-bold text-white mb-2">{professional.pricing.individual}</p>
-                        <p className="text-slate-300 text-sm">50 minutos de terapia focada</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                    <div className="relative bg-white/5 rounded-xl p-6 border border-purple-400/30 hover:border-purple-400/50 transition-all duration-300">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Heart className="w-6 h-6 text-white" />
-                        </div>
-                        <p className="text-purple-300 font-semibold text-lg mb-2">Terapia de Casal</p>
-                        <p className="text-3xl font-bold text-white mb-2">{professional.pricing.couple}</p>
-                        <p className="text-slate-300 text-sm">90 minutos para o casal</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                    <div className="relative bg-white/5 rounded-xl p-6 border border-green-400/30 hover:border-green-400/50 transition-all duration-300">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Users className="w-6 h-6 text-white" />
-                        </div>
-                        <p className="text-green-300 font-semibold text-lg mb-2">Terapia Familiar</p>
-                        <p className="text-3xl font-bold text-white mb-2">{professional.pricing.family}</p>
-                        <p className="text-slate-300 text-sm">120 minutos para a família</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 p-4 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-lg border border-yellow-400/20">
-                  <div className="flex items-center space-x-2 text-yellow-300">
-                    <CheckCircle className="w-5 h-5" />
-                    <span className="font-medium">Primeira consulta com desconto de 20%</span>
-                  </div>
-                </div>
-              </div>
+              {/* Seção de preços removida por solicitação */}
 
               {/* Quick Actions */}
-              <div className="pt-6 border-t border-white/20">
+              <div className="pt-6 border-t border-slate-200">
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">Pronto para começar sua jornada?</h3>
-                  <p className="text-slate-300">Agende sua primeira consulta e dê o primeiro passo rumo ao seu bem-estar</p>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Pronto para começar sua jornada?</h3>
+                  <p className="text-slate-600">Agende sua primeira consulta e dê o primeiro passo rumo ao seu bem-estar</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
@@ -730,7 +667,7 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
                 <div className="text-center">
                   <a
                     href={`mailto:${professional.contact.email}`}
-                    className="inline-flex items-center space-x-2 text-slate-300 hover:text-white transition-colors duration-300 group"
+                    className="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors duration-300 group"
                   >
                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                     <span className="font-medium">{professional.contact.email}</span>
@@ -750,16 +687,16 @@ const ProfessionalPage: React.FC<ProfessionalPageProps> = ({ professional }) => 
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm text-slate-300">Profissional registrado e verificado no CRP</span>
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <span className="text-sm text-slate-600">Profissional registrado e verificado no CRP</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
-                  <Heart className="w-5 h-5 text-red-400" />
-                  <span className="text-sm text-slate-300">Atendimento ético e confidencial</span>
+                  <Heart className="w-5 h-5 text-red-600" />
+                  <span className="text-sm text-slate-600">Atendimento ético e confidencial</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
-                  <Award className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm text-slate-300">Formação continuada e atualizada</span>
+                  <Award className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm text-slate-600">Formação continuada e atualizada</span>
                 </div>
               </div>
             </LiquidGlassCard>

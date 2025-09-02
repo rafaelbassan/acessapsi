@@ -97,11 +97,6 @@ export const alexBassanData = {
     email: "alex.bassan@acessapsi.com",
     address: "Clínica Raízes, Rua Frei Antônio de Pádua, 1028, Campinas, SP"
   },
-  pricing: {
-    individual: "R$ 150,00",
-    couple: "R$ 200,00",
-    family: "R$ 250,00"
-  },
   testimonials: [
     {
       id: 1,

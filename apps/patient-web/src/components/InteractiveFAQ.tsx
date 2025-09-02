@@ -76,17 +76,17 @@ export default function InteractiveFAQ() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <HelpCircle className="w-5 h-5 text-blue-400" />
-            <span className="text-sm font-medium text-blue-300">Perguntas Frequentes</span>
+            <span className="text-sm font-medium text-blue-600">Perguntas Frequentes</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
             Dúvidas
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Comuns
             </span>
           </h2>
 
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Encontre respostas para as perguntas mais frequentes sobre nossos serviços
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function InteractiveFAQ() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/25'
-                  : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
               }`}
             >
               {category}
@@ -129,26 +129,26 @@ export default function InteractiveFAQ() {
                           ? 'bg-gradient-to-r from-blue-500 to-purple-500'
                           : 'bg-white/20'
                       }`}>
-                        <span className="text-sm font-bold text-white">
+                        <span className="text-sm font-bold text-slate-800">
                           {index + 1}
                         </span>
                       </div>
 
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-xs font-medium text-blue-300 bg-blue-500/20 px-2 py-1 rounded-full">
+                          <span className="text-xs font-medium text-blue-600 bg-blue-500/20 px-2 py-1 rounded-full">
                             {item.category}
                           </span>
                         </div>
 
-                        <h3 className="text-lg font-semibold text-white mb-2">
+                        <h3 className="text-lg font-semibold text-slate-800 mb-2">
                           {item.question}
                         </h3>
 
                         <div className={`overflow-hidden transition-all duration-300 ${
                           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                         }`}>
-                          <p className="text-slate-300 leading-relaxed pt-2">
+                          <p className="text-slate-700 leading-relaxed pt-2">
                             {item.answer}
                           </p>
                         </div>
@@ -174,15 +174,15 @@ export default function InteractiveFAQ() {
             intensity="medium"
             className="inline-block p-8 hover:scale-105 transition-all duration-300"
           >
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-xl font-semibold text-slate-900 mb-2">
               Ainda tem dúvidas?
             </h3>
-            <p className="text-slate-300 mb-4">
+            <p className="text-slate-600 mb-4">
               Entre em contato conosco para esclarecer qualquer questão
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center space-x-2 text-blue-300 hover:text-blue-200 font-medium transition-colors duration-300"
+              className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
             >
               <span>Falar com Especialista</span>
               <ChevronDown className="w-4 h-4" />

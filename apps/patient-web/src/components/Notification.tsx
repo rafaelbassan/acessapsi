@@ -98,7 +98,7 @@ export function Notification({
               <h4 className={`text-sm font-semibold ${style.titleColor} mb-1`}>
                 {title}
               </h4>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-slate-700 leading-relaxed">
                 {message}
               </p>
             </div>

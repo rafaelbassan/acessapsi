@@ -101,14 +101,14 @@ export default function TestimonialsSection() {
             <span className="text-sm font-medium text-yellow-300">Depoimentos</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             O que nossos
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
               pacientes dizem
             </span>
           </h2>
 
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Histórias reais de transformação e bem-estar
           </p>
         </div>
@@ -133,16 +133,16 @@ export default function TestimonialsSection() {
                 <div className="flex-shrink-0 text-center lg:text-left">
                   <div className="relative mb-4">
                     <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto lg:mx-0">
-                      <User className="w-10 h-10 text-white" />
+                      <User className="w-10 h-10 text-slate-900" />
                     </div>
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-30 blur-lg"></div>
                   </div>
 
-                  <h4 className="text-xl font-semibold text-white mb-1">
+                  <h4 className="text-xl font-semibold text-slate-900 mb-1">
                     {currentTestimonial.name}
                   </h4>
 
-                  <p className="text-slate-300 text-sm mb-2">
+                  <p className="text-slate-600 text-sm mb-2">
                     {currentTestimonial.role}
                   </p>
 
@@ -159,10 +159,10 @@ export default function TestimonialsSection() {
 
                 {/* Testimonial Text */}
                 <div className="flex-1">
-                  <blockquote className="text-lg lg:text-xl text-slate-200 leading-relaxed mb-6 relative">
-                    <span className="absolute -top-2 -left-2 text-4xl text-blue-400 opacity-30">"</span>
+                  <blockquote className="text-lg lg:text-xl text-slate-700 leading-relaxed mb-6 relative">
+                    <span className="absolute -top-2 -left-2 text-4xl text-blue-600 opacity-30">"</span>
                     {currentTestimonial.content}
-                    <span className="absolute -bottom-4 -right-2 text-4xl text-blue-400 opacity-30">"</span>
+                    <span className="absolute -bottom-4 -right-2 text-4xl text-blue-600 opacity-30">"</span>
                   </blockquote>
                 </div>
               </div>
@@ -171,14 +171,14 @@ export default function TestimonialsSection() {
             {/* Navigation Arrows */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-100 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-all duration-300 hover:scale-110"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
             <button
               onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-100 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-all duration-300 hover:scale-110"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -217,7 +217,7 @@ export default function TestimonialsSection() {
               <div className="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-1">
                 {stat.number}
               </div>
-              <div className="text-sm text-slate-300">
+              <div className="text-sm text-slate-600">
                 {stat.label}
               </div>
             </LiquidGlassCard>

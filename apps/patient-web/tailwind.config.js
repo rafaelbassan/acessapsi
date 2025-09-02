@@ -8,7 +8,47 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Elegant professional color palette
+        // Psychology Clinic Specialized Colors
+        'therapy': {
+          50: '#f0fdf4',   // Very light green
+          100: '#dcfce7',  // Light green
+          200: '#bbf7d0',  // Lighter green
+          300: '#86efac',  // Light-medium green
+          400: '#4ade80',  // Medium green
+          500: '#10b981',  // Psychology green light
+          600: '#059669',  // Psychology green (primary)
+          700: '#047857',  // Psychology green dark
+          800: '#065f46',  // Darker green
+          900: '#064e3b',  // Very dark green
+          950: '#022c22',  // Almost black green
+        },
+        'trust': {
+          50: '#f0f9ff',   // Very light blue
+          100: '#e0f2fe',  // Light blue
+          200: '#bae6fd',  // Lighter blue
+          300: '#7dd3fc',  // Light-medium blue
+          400: '#38bdf8',  // Medium blue
+          500: '#0ea5e9',  // Psychology blue light
+          600: '#0284c7',  // Psychology blue (primary)
+          700: '#0369a1',  // Psychology blue dark
+          800: '#075985',  // Darker blue
+          900: '#0c4a6e',  // Very dark blue
+          950: '#082f49',  // Almost black blue
+        },
+        'wisdom': {
+          50: '#faf5ff',   // Very light purple
+          100: '#f3e8ff',  // Light purple
+          200: '#e9d5ff',  // Lighter purple
+          300: '#d8b4fe',  // Light-medium purple
+          400: '#c084fc',  // Medium purple
+          500: '#a855f7',  // Purple medium
+          600: '#9333ea',  // Purple
+          700: '#7c3aed',  // Psychology purple (primary)
+          800: '#6b21b6',  // Psychology purple dark
+          900: '#581c87',  // Very dark purple
+          950: '#3b0764',  // Almost black purple
+        },
+        // Elegant professional color palette (mantido para compatibilidade)
         primary: {
           50: '#f8fafc',
           100: '#f1f5f9', 

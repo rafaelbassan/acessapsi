@@ -1,9 +1,9 @@
 "use client";
 
 import React from 'react';
-import ProfessionalPage from '../../components/ProfessionalPageTemplate';
+import SimpleProfessionalPage from '../../components/SimpleProfessionalPage';
 import { alexBassanData } from '../../data/professionals/alexBassan';
 
 export default function AlexBassanPage() {
-  return <ProfessionalPage professional={alexBassanData} />;
+  return <SimpleProfessionalPage professional={alexBassanData} />;
 }

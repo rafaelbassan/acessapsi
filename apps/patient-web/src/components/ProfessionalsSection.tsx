@@ -92,14 +92,14 @@ const ProfessionalsSection = () => {
             </span>
           </LiquidGlassCard>
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             Profissionais dedicados ao
             <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-bold">
               seu bem-estar
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Nossa equipe multidisciplinar combina experiência clínica, formação acadêmica de 
             excelência e dedicação ao cuidado humanizado para oferecer o melhor tratamento.
           </p>
@@ -118,12 +118,12 @@ const ProfessionalsSection = () => {
               cornerRadius={20}
             >
               <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                {React.createElement(stat.icon, { className: "w-6 h-6 text-white" })}
+                {React.createElement(stat.icon, { className: "w-6 h-6 text-slate-900" })}
               </div>
-              <div className="text-2xl font-bold text-white mb-1">
+              <div className="text-2xl font-bold text-slate-900 mb-1">
                 {stat.number}
               </div>
-              <div className="text-neutral-400 text-sm">
+              <div className="text-slate-600 text-sm">
                 {stat.label}
               </div>
             </LiquidGlassCard>
@@ -155,16 +155,16 @@ const ProfessionalsSection = () => {
                     {professional.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white mb-1">
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">
                       {professional.name}
                     </h3>
-                    <p className="text-blue-400 text-sm mb-2">
+                    <p className="text-blue-600 text-sm mb-2">
                       {professional.specialty}
                     </p>
                     <div className="flex items-center space-x-2">
                       <div className="flex items-center space-x-1">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                        <span className="text-neutral-300 text-sm font-medium">
+                        <span className="text-slate-600 text-sm font-medium">
                           {professional.rating}
                         </span>
                       </div>
@@ -191,19 +191,19 @@ const ProfessionalsSection = () => {
                 {/* Professional Header */}
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
                       {professionals[selectedProfessional].name}
                     </h3>
-                    <p className="text-blue-400 text-lg mb-4">
+                    <p className="text-blue-600 text-lg mb-4">
                       {professionals[selectedProfessional].specialty}
                     </p>
                     <div className="flex items-center space-x-4 mb-4">
                       <div className="flex items-center space-x-1">
                         <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                        <span className="text-white font-semibold">
+                        <span className="text-slate-900 font-semibold">
                           {professionals[selectedProfessional].rating}
                         </span>
-                        <span className="text-neutral-400">
+                        <span className="text-slate-500">
                           ({professionals[selectedProfessional].reviews} avaliações)
                         </span>
                       </div>
@@ -215,7 +215,7 @@ const ProfessionalsSection = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-neutral-300 text-base sm:text-lg leading-relaxed">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                   {professionals[selectedProfessional].description}
                 </p>
 
@@ -224,7 +224,7 @@ const ProfessionalsSection = () => {
                   
                   {/* Credentials */}
                   <div className="space-y-4">
-                    <h4 className="text-white font-semibold flex items-center space-x-2">
+                    <h4 className="text-slate-900 font-semibold flex items-center space-x-2">
                       <Award className="w-5 h-5 text-yellow-400" />
                       <span>Credenciais</span>
                     </h4>
@@ -232,7 +232,7 @@ const ProfessionalsSection = () => {
                       {professionals[selectedProfessional].credentials.map((credential, index) => (
                         <div key={index} className="flex items-center space-x-2">
                           <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
-                          <span className="text-neutral-300 text-sm">{credential}</span>
+                          <span className="text-slate-600 text-sm">{credential}</span>
                         </div>
                       ))}
                     </div>
@@ -240,11 +240,11 @@ const ProfessionalsSection = () => {
 
                   {/* Availability */}
                   <div className="space-y-4">
-                    <h4 className="text-white font-semibold flex items-center space-x-2">
-                      <Clock className="w-5 h-5 text-blue-400" />
+                    <h4 className="text-slate-900 font-semibold flex items-center space-x-2">
+                      <Clock className="w-5 h-5 text-blue-600" />
                       <span>Disponibilidade</span>
                     </h4>
-                    <p className="text-neutral-300 text-sm">
+                    <p className="text-slate-600 text-sm">
                       {professionals[selectedProfessional].availability}
                     </p>
                     <div className="space-y-2">
@@ -283,7 +283,7 @@ const ProfessionalsSection = () => {
                       const message = encodeURIComponent('Olá Alex! Gostaria de saber mais sobre seus serviços psicológicos.');
                       window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
                     }}
-                    className="flex items-center justify-center space-x-2 bg-white/10 border border-white/20 text-white hover:bg-white/20"
+                    className="flex items-center justify-center space-x-2 bg-blue-600 border border-blue-700 text-white hover:bg-blue-700"
                   >
                     <MessageCircle className="w-5 h-5" />
                     <span>Enviar Mensagem</span>
@@ -302,10 +302,10 @@ const ProfessionalsSection = () => {
             className="max-w-2xl mx-auto p-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30"
             cornerRadius={32}
           >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Conheça nosso profissional especializado
             </h3>
-            <p className="text-neutral-300 mb-6">
+            <p className="text-slate-600 mb-6">
               Alex Bassan está pronto para oferecer o suporte personalizado que você precisa 
               em sua jornada de crescimento e bem-estar.
             </p>
