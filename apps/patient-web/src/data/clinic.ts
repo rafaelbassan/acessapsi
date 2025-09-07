@@ -1,8 +1,8 @@
 export const clinicData = {
   name: "AcessaPsi",
-  description: "Plataforma de psicoterapia online e presencial",
+  description: "Plataforma de Psicoterapia Presencial e Online",
   mission: "Facilitar o acesso aos cuidados de saúde mental através de uma experiência humanizada e tecnológica.",
-  tagline: "Psicoterapia humanizada",
+  tagline: "Psicoterapia",
   subtitle: "Conectando você aos melhores profissionais de psicologia com atendimento personalizado e acolhedor.",
   
   contact: {
