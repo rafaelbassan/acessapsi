@@ -1,5 +1,168 @@
 /* ===== UTILITY CLASSES ===== */
 
+/* Mobile-first responsive text */
+@media (max-width: 640px) {
+  .text-responsive-xs { font-size: 0.7rem; line-height: 1rem; }
+  .text-responsive-sm { font-size: 0.8rem; line-height: 1.2rem; }
+  .text-responsive-base { font-size: 0.9rem; line-height: 1.4rem; }
+  .text-responsive-lg { font-size: 1rem; line-height: 1.5rem; }
+  .text-responsive-xl { font-size: 1.125rem; line-height: 1.6rem; }
+  .text-responsive-2xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .text-responsive-3xl { font-size: 1.5rem; line-height: 2rem; }
+  .text-responsive-4xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .text-responsive-5xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .text-responsive-6xl { font-size: 3rem; line-height: 1; }
+}
+
+/* Prevent text overflow on mobile */
+.text-no-overflow {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+/* Mobile-optimized spacing */
+.mobile-px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.mobile-px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.mobile-px-4 { padding-left: 1rem; padding-right: 1rem; }
+
+.mobile-py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.mobile-py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.mobile-py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+
+/* Mobile-optimized containers */
+.mobile-container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile-friendly buttons */
+.btn-mobile {
+  min-height: 44px; /* iOS recommended minimum touch target */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-mobile-sm {
+  min-height: 40px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Mobile-optimized grids */
+.grid-mobile-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-mobile-1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-mobile-1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Text scaling for very small screens */
+@media (max-width: 375px) {
+  .text-scale-xs {
+    font-size: 0.65rem;
+    line-height: 1rem;
+  }
+
+  .text-scale-sm {
+    font-size: 0.75rem;
+    line-height: 1.1rem;
+  }
+
+  .text-scale-base {
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+  }
+}
+
+/* Better line breaks for long text */
+.break-words {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Responsive containers with better mobile padding */
+.container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile-optimized headings */
+.heading-mobile {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .heading-mobile {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-mobile {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-mobile {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}
+
 /* Button Utilities */
 .btn-primary {
   background: rgb(var(--accent-primary));

@@ -64,43 +64,43 @@ const SimpleAboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+        <div className={`text-center mb-8 sm:mb-12 lg:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
             Sobre a {clinicData.name}
           </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed text-no-overflow px-2 sm:px-0">
             {clinicData.mission}
           </p>
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center mb-8 sm:mb-12 lg:mb-16">
           
           {/* Left side - Clinic info */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               
               {/* Clinic logo and intro */}
-              <div className="flex items-start space-x-6">
+              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
                 <Image
                   src="/images/logo_psi.png"
                   alt="AcessaPsi"
                   width={120}
                   height={120}
-                  className="w-24 h-24 object-contain flex-shrink-0"
+                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain flex-shrink-0 mx-auto sm:mx-0"
                 />
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                <div className="text-center sm:text-left">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-2">
                     {clinicData.name}
                   </h3>
-                  <p className="text-therapy-600 font-medium mb-1">
+                  <p className="text-therapy-600 font-medium mb-1 text-sm sm:text-base">
                     {clinicData.description}
                   </p>
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base text-no-overflow">
                     Nossa plataforma conecta você aos melhores profissionais de psicologia, 
                     oferecendo atendimento presencial e online com foco no seu bem-estar e desenvolvimento pessoal.
                   </p>
@@ -133,22 +133,22 @@ const SimpleAboutSection = () => {
 
           {/* Right side - Values */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-slate-800 mb-8">
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8">
                 Nossos valores no atendimento
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {values.map((value, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-therapy-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <value.icon className="w-6 h-6 text-therapy-600" />
+                  <div key={index} className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-therapy-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-therapy-600" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-slate-800 mb-2">
+                      <h4 className="text-base sm:text-lg font-semibold text-slate-800 mb-1 sm:mb-2">
                         {value.title}
                       </h4>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-slate-600 leading-relaxed text-sm sm:text-base text-no-overflow">
                         {value.description}
                       </p>
                     </div>
@@ -160,21 +160,21 @@ const SimpleAboutSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className={`text-center bg-white rounded-2xl shadow-lg p-8 border border-slate-100 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+        <div className={`text-center bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-slate-100 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4">
             Vamos conversar?
           </h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-slate-600 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base text-no-overflow px-2 sm:px-0">
             Entre em contato conosco para esclarecer suas dúvidas sobre nossos serviços e 
             descobrir como podemos ajudar você em sua jornada de bem-estar.
           </p>
           <button 
             onClick={handleWhatsApp}
-            className="bg-therapy-600 hover:bg-therapy-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 mx-auto group"
+            className="bg-therapy-600 hover:bg-therapy-700 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 mx-auto group btn-mobile"
           >
-            <MessageCircle className="w-5 h-5" />
-            <span>Conversar no WhatsApp</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-sm sm:text-base">Conversar no WhatsApp</span>
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>
 

@@ -38,21 +38,21 @@ const SimpleFAQSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <div className="max-w-3xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-800 mb-3 sm:mb-4">
             Dúvidas Frequentes
           </h2>
-          <p className="text-lg text-slate-600 font-light">
+          <p className="text-base sm:text-lg text-slate-600 font-light text-no-overflow px-2 sm:px-0">
             Algumas perguntas comuns sobre o processo terapêutico
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -60,21 +60,21 @@ const SimpleFAQSection = () => {
             >
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors duration-200"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors duration-200"
               >
-                <span className="font-medium text-slate-800">
+                <span className="font-medium text-slate-800 text-sm sm:text-base leading-tight text-no-overflow pr-2">
                   {faq.question}
                 </span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-600 transition-transform duration-200 ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-slate-600 transition-transform duration-200 flex-shrink-0 ${
                     openQuestion === index ? 'transform rotate-180' : ''
                   }`}
                 />
               </button>
               
               {openQuestion === index && (
-                <div className="px-6 pb-4">
-                  <p className="text-slate-600 font-light leading-relaxed">
+                <div className="px-4 sm:px-6 pb-3 sm:pb-4">
+                  <p className="text-slate-600 font-light leading-relaxed text-sm sm:text-base text-no-overflow">
                     {faq.answer}
                   </p>
                 </div>
@@ -84,8 +84,8 @@ const SimpleFAQSection = () => {
         </div>
 
         {/* Contact Note */}
-        <div className="text-center mt-8">
-          <p className="text-slate-600 font-light">
+        <div className="text-center mt-6 sm:mt-8">
+          <p className="text-slate-600 font-light text-sm sm:text-base text-no-overflow px-2 sm:px-0">
             Não encontrou sua dúvida aqui?{' '}
             <a
               href="#contact"

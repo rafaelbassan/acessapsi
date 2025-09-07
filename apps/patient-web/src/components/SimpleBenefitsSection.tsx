@@ -65,36 +65,36 @@ const SimpleBenefitsSection = () => {
   ];
 
   return (
-    <section id="benefits" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="benefits" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-slate-800 mb-3 sm:mb-4">
             Como a psicoterapia pode te ajudar
           </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-light text-no-overflow px-2 sm:px-0">
             A psicoterapia oferece um espaço seguro para explorar seus sentimentos, 
             desenvolver novas perspectivas e encontrar caminhos para o bem-estar.
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="text-center p-6"
+              className="text-center p-4 sm:p-6"
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-therapy-50 flex items-center justify-center">
-                <benefit.icon className="w-8 h-8 text-therapy-600" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-therapy-50 flex items-center justify-center">
+                <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8 text-therapy-600" />
               </div>
 
-              <h3 className="text-xl font-medium text-slate-800 mb-3">
+              <h3 className="text-lg sm:text-xl font-medium text-slate-800 mb-2 sm:mb-3">
                 {benefit.title}
               </h3>
 
-              <p className="text-slate-600 leading-relaxed font-light">
+              <p className="text-slate-600 leading-relaxed font-light text-sm sm:text-base text-no-overflow">
                 {benefit.description}
               </p>
             </div>

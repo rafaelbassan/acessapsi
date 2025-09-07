@@ -120,6 +120,17 @@ module.exports = {
         '7xl': ['4.5rem', { lineHeight: '1' }],
         '8xl': ['6rem', { lineHeight: '1' }],
         '9xl': ['8rem', { lineHeight: '1' }],
+        // Tamanhos otimizados para mobile
+        'mobile-xs': ['0.7rem', { lineHeight: '1rem' }],
+        'mobile-sm': ['0.8rem', { lineHeight: '1.2rem' }],
+        'mobile-base': ['0.9rem', { lineHeight: '1.4rem' }],
+        'mobile-lg': ['1rem', { lineHeight: '1.5rem' }],
+        'mobile-xl': ['1.125rem', { lineHeight: '1.6rem' }],
+        'mobile-2xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        'mobile-3xl': ['1.5rem', { lineHeight: '2rem' }],
+        'mobile-4xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        'mobile-5xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        'mobile-6xl': ['3rem', { lineHeight: '1' }],
       },
       boxShadow: {
         'xs': '0 1px 2px 0 rgb(0 0 0 / 0.05)',

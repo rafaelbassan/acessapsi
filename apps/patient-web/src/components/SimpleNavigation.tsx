@@ -50,22 +50,22 @@ const SimpleNavigation = () => {
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200' 
           : 'bg-white/80 backdrop-blur-sm'
       }`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-8">
+          <div className="flex justify-between items-center h-14 sm:h-16">
             
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg bg-therapy-50 flex items-center justify-center">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-therapy-50 flex items-center justify-center">
                 <Image 
                   src="/images/logo_psi.png"
                   alt="Acessa Psi Logo"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 object-contain"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   priority
                 />
               </div>
-              <span className="text-xl font-medium text-slate-800">
+              <span className="text-lg sm:text-xl font-medium text-slate-800">
                 Acessa Psi
               </span>
             </div>
@@ -87,10 +87,10 @@ const SimpleNavigation = () => {
             <div className="hidden md:block">
               <button
                 onClick={handleContact}
-                className="bg-therapy-600 hover:bg-therapy-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 font-medium"
+                className="bg-therapy-600 hover:bg-therapy-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 font-medium btn-mobile-sm"
               >
-                <Phone className="w-4 h-4" />
-                <span>Contato</span>
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-sm sm:text-base">Contato</span>
               </button>
             </div>
 
@@ -101,9 +101,9 @@ const SimpleNavigation = () => {
                 className="p-2 rounded-lg text-slate-600 hover:text-therapy-600 hover:bg-therapy-50 transition-colors duration-200"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
                 )}
               </button>
             </div>
@@ -113,22 +113,22 @@ const SimpleNavigation = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200">
-            <div className="px-4 py-2 space-y-1">
+            <div className="px-3 sm:px-4 py-2 space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-slate-600 hover:text-therapy-600 hover:bg-therapy-50 rounded-lg transition-colors duration-200 font-light"
+                  className="block w-full text-left px-3 py-3 text-slate-600 hover:text-therapy-600 hover:bg-therapy-50 rounded-lg transition-colors duration-200 font-light text-sm sm:text-base"
                 >
                   {item.label}
                 </button>
               ))}
               <button
                 onClick={handleContact}
-                className="w-full bg-therapy-600 hover:bg-therapy-700 text-white px-3 py-2 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 font-medium mt-2"
+                className="w-full bg-therapy-600 hover:bg-therapy-700 text-white px-3 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 font-medium mt-2 btn-mobile-sm"
               >
-                <Phone className="w-4 h-4" />
-                <span>Entrar em contato</span>
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-sm sm:text-base">Entrar em contato</span>
               </button>
             </div>
           </div>
@@ -136,7 +136,7 @@ const SimpleNavigation = () => {
       </nav>
 
       {/* Spacer */}
-      <div className="h-16"></div>
+      <div className="h-14 sm:h-16"></div>
     </>
   );
 };

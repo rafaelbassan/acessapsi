@@ -155,7 +155,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-                Psicoterapia humanizada com profissionais especializados. Acompanhamos você na 
+                Psicoterapia umanizada com profissionais especializados. Acompanhamos você na 
                 jornada de autoconhecimento e bem-estar emocional em um ambiente seguro e acolhedor.
               </p>
             </div>
