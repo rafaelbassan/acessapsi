@@ -116,10 +116,10 @@ const SimpleFooter = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-therapy-600 flex-shrink-0" />
                 <a 
-                  href="https://wa.me/5519987654321" 
+                  href="https://wa.me/5519988200585" 
                   className="text-slate-600 font-light text-sm hover:text-therapy-600 transition-colors duration-200"
                 >
-                  (19) 98765-4321
+                  (19) 98820-0585
                 </a>
               </div>
 

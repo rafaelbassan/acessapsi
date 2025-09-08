@@ -95,7 +95,7 @@ export const alexBassanData = {
     whatsapp: "(19) 98820-0585",
     phone: "(19) 98820-0585",
     email: "alex.bassan@acessapsi.com",
-    address: "Clínica Raízes, Rua Frei Antônio de Pádua, 1028, Campinas, SP"
+    address: "Frei Antônio de Pádua, 1028, Jd Guanabara, Campinas, SP"
   },
   testimonials: [
     {

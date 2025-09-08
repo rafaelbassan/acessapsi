@@ -8,7 +8,7 @@ export const clinicData = {
   contact: {
     email: "contato@acessapsi.com.br",
     phone: "(19) 3456-7890",
-    whatsapp: "(19) 98765-4321",
+    whatsapp: "(19) 98820-0585",
     address: {
       street: "Rua das Clínicas, 123",
       neighborhood: "Centro",

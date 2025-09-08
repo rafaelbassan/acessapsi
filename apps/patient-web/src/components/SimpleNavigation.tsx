@@ -38,7 +38,7 @@ const SimpleNavigation = () => {
   };
 
   const handleContact = () => {
-    const phoneNumber = '5519987654321';
+    const phoneNumber = '5519988200585';
     const message = encodeURIComponent('Olá! Gostaria de agendar uma consulta.');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };

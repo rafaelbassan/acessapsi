@@ -11,7 +11,7 @@ import {
 
 const SimpleContactSection = () => {
   const handleWhatsApp = () => {
-    const phoneNumber = '5519987654321';
+    const phoneNumber = '5519988200585';
     const message = encodeURIComponent('Olá! Gostaria de agendar uma consulta ou saber mais sobre os atendimentos.');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
