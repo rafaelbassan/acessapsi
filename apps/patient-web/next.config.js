@@ -15,12 +15,6 @@ const nextConfig = {
   },
   // Otimizar bundle
   webpack: (config, { dev, isServer }) => {
-    // Otimizar imports de ícones
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'lucide-react': 'lucide-react/dist/esm/icons',
-    };
-
     // Remover console.logs em produção
     if (!dev && !isServer) {
       config.optimization.minimizer.push(
