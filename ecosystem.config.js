@@ -12,7 +12,8 @@ module.exports = {
       max_memory_restart: '1G',
       env: {
         NODE_ENV: 'production',
-        PORT: 3000
+        PORT: 3000,
+        HOSTNAME: '0.0.0.0' // Importante para Docker
       },
       error_file: '../../logs/patient-web-error.log',
       out_file: '../../logs/patient-web-out.log',

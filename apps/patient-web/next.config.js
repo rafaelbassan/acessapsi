@@ -6,6 +6,8 @@ const nextConfig = {
   },
   reactStrictMode: true,
   output: 'standalone',
+  // Configuração para Docker - escutar em todas as interfaces
+  hostname: '0.0.0.0',
   // Otimizações de performance
   compress: true,
   images: {
