@@ -8,8 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start:admin": "cd apps/admin-web && npm start",
-    "start:patient": "cd apps/patient-web && npm start",
+    "start:admin": "cd apps/admin-web && npm run build && npm start",
+    "start:patient": "cd apps/patient-web && npm run build && npm start",
     "start": "npm run start:patient",
     "dev": "turbo run dev",
     "build": "turbo run build",

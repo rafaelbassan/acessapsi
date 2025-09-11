@@ -15,4 +15,4 @@ cmds = [
 
 [start]
 # Inicia o app no diretório correto
-cmd = 'npm start'
+cmd = 'cd apps/patient-web && npm start'
