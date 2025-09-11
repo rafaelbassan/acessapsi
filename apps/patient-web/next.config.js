@@ -7,7 +7,6 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   // Otimizações de performance
-  swcMinify: true,
   compress: true,
   images: {
     formats: ['image/webp', 'image/avif'],

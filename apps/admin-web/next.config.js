@@ -5,7 +5,6 @@ const nextConfig = {
     domains: ['localhost'],
   },
   // Otimizações de performance
-  swcMinify: true,
   compress: true,
   experimental: {
     optimizePackageImports: ['lucide-react', 'recharts']
