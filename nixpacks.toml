@@ -15,7 +15,7 @@ cmds = [
 
 [start]
 # Inicia o app no diretório correto
-cmd = 'cd apps/patient-web && HOSTNAME=0.0.0.0 npm start'
+cmd = 'cd apps/patient-web && HOST=0.0.0.0 npm start'
 
 [healthcheck]
 # Health check endpoint for container health monitoring
