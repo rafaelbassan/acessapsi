@@ -2,23 +2,84 @@
 const nextConfig = {
   transpilePackages: ['@acessapsi/shared-types', '@acessapsi/ui-components', '@acessapsi/utils'],
   experimental: {
-    optimizePackageImports: ['lucide-react']
+    optimizePackageImports: ['lucide-react'],
   },
   reactStrictMode: true,
   output: 'standalone',
   // Configurações importantes para evitar problemas de chunk loading
   generateEtags: false,
   poweredByHeader: false,
-  // Otimizações de performance
-  compress: true,
+  // Configurações críticas para assets estáticos em standalone mode
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Otimização de imagem ativada para melhor performance
+    unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'acessapsi.com.br',
+        pathname: '/**',
+      },
+    ],
+    minimumCacheTTL: 86400, // 24 horas de cache
   },
   // Configurações de assets estáticos
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  assetPrefix: '',
   trailingSlash: false,
+  // Headers customizados para assets
+  async headers() {
+    return [
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'",
+          },
+        ],
+      },
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
+      },
+    ];
+  },
+  // Otimizações de performance
+  compress: true,
   // Otimizar bundle
   webpack: (config, { dev, isServer }) => {
     // Configurar chunk splitting de forma mais estável

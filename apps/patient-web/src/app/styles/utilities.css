@@ -1,5 +1,85 @@
 /* ===== UTILITY CLASSES ===== */
 
+/* ===== ACCESSIBILITY & CONTRAST UTILITIES ===== */
+/* High contrast text colors for WCAG AA compliance */
+.text-therapy-high-contrast { 
+  color: #065f46 !important; /* Even darker therapy green for better contrast */
+}
+
+.text-trust-high-contrast { 
+  color: #075985 !important; /* Even darker trust blue for better contrast */
+}
+
+.text-wisdom-high-contrast { 
+  color: #6b21b6 !important; /* Even darker wisdom purple for better contrast */
+}
+
+/* Button contrast improvements */
+.btn-therapy-accessible {
+  background-color: #047857;
+  color: white;
+  border: none;
+}
+
+.btn-therapy-accessible:hover {
+  background-color: #065f46;
+}
+
+.btn-therapy-outline-accessible {
+  background-color: white;
+  color: #065f46;
+  border: 1px solid #065f46;
+}
+
+.btn-therapy-outline-accessible:hover {
+  background-color: #f0fdf4;
+  color: #064e3b;
+  border-color: #064e3b;
+}
+
+/* High contrast background combinations */
+.bg-therapy-accessible { 
+  background-color: #047857;
+  color: white;
+}
+
+.bg-slate-accessible { 
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* Section background with sufficient contrast */
+.bg-section-accessible {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Mobile button improvements for better contrast */
+.btn-mobile-sm {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .btn-mobile-sm {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Enhanced contrast for green buttons */
+.bg-green-600 {
+  background-color: #047857 !important;
+}
+
+.hover\:bg-green-700:hover {
+  background-color: #065f46 !important;
+}
+
 /* Mobile-first responsive text */
 @media (max-width: 640px) {
   .text-responsive-xs { font-size: 0.7rem; line-height: 1rem; }

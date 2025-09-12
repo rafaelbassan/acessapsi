@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Psychology Clinic Specialized Colors
+        // Psychology Clinic Specialized Colors - Optimized for WCAG AA compliance
         'therapy': {
           50: '#f0fdf4',   // Very light green
           100: '#dcfce7',  // Light green
@@ -16,11 +16,11 @@ module.exports = {
           300: '#86efac',  // Light-medium green
           400: '#4ade80',  // Medium green
           500: '#10b981',  // Psychology green light
-          600: '#059669',  // Psychology green (primary)
-          700: '#047857',  // Psychology green dark
-          800: '#065f46',  // Darker green
-          900: '#064e3b',  // Very dark green
-          950: '#022c22',  // Almost black green
+          600: '#065f46',  // Psychology green (primary) - Much darker for optimal contrast
+          700: '#064e3b',  // Psychology green dark
+          800: '#022c22',  // Darker green
+          900: '#001a14',  // Very dark green
+          950: '#000d0a',  // Almost black green
         },
         'trust': {
           50: '#f0f9ff',   // Very light blue
@@ -29,11 +29,11 @@ module.exports = {
           300: '#7dd3fc',  // Light-medium blue
           400: '#38bdf8',  // Medium blue
           500: '#0ea5e9',  // Psychology blue light
-          600: '#0284c7',  // Psychology blue (primary)
-          700: '#0369a1',  // Psychology blue dark
-          800: '#075985',  // Darker blue
-          900: '#0c4a6e',  // Very dark blue
-          950: '#082f49',  // Almost black blue
+          600: '#075985',  // Psychology blue (primary) - Much darker for optimal contrast
+          700: '#0c4a6e',  // Psychology blue dark
+          800: '#082f49',  // Darker blue
+          900: '#051a2e',  // Very dark blue
+          950: '#041018',  // Almost black blue
         },
         'wisdom': {
           50: '#faf5ff',   // Very light purple
@@ -42,11 +42,11 @@ module.exports = {
           300: '#d8b4fe',  // Light-medium purple
           400: '#c084fc',  // Medium purple
           500: '#a855f7',  // Purple medium
-          600: '#9333ea',  // Purple
-          700: '#7c3aed',  // Psychology purple (primary)
-          800: '#6b21b6',  // Psychology purple dark
-          900: '#581c87',  // Very dark purple
-          950: '#3b0764',  // Almost black purple
+          600: '#6b21b6',  // Psychology purple (primary) - Much darker for optimal contrast
+          700: '#581c87',  // Psychology purple dark
+          800: '#3b0764',  // Very dark purple
+          900: '#2a0845',  // Almost black purple
+          950: '#1a0530',  // Deepest purple
         },
         // Elegant professional color palette (mantido para compatibilidade)
         primary: {
@@ -100,6 +100,20 @@ module.exports = {
           800: '#075985',
           900: '#0c4a6e',
           950: '#082f49',
+        },
+        // Enhanced green colors for better contrast
+        green: {
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#047857', // Much darker green for better contrast
+          700: '#065f46',
+          800: '#064e3b',
+          900: '#022c22',
+          950: '#001a14',
         }
       },
       fontFamily: {

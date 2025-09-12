@@ -172,6 +172,7 @@ export default function TestimonialsSection() {
             <button
               onClick={prevTestimonial}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-100 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-all duration-300 hover:scale-110"
+              aria-label="Depoimento anterior"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -179,6 +180,7 @@ export default function TestimonialsSection() {
             <button
               onClick={nextTestimonial}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-slate-100 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-all duration-300 hover:scale-110"
+              aria-label="Próximo depoimento"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -196,6 +198,8 @@ export default function TestimonialsSection() {
                   ? 'bg-gradient-to-r from-blue-400 to-purple-400 w-8'
                   : 'bg-white/30 hover:bg-white/50'
               }`}
+              aria-label={`Ir para depoimento ${index + 1}`}
+              aria-current={index === currentIndex ? "true" : "false"}
             />
           ))}
         </div>

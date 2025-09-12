@@ -99,6 +99,9 @@ const SimpleNavigation = () => {
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-lg text-slate-600 hover:text-therapy-600 hover:bg-therapy-50 transition-colors duration-200"
+                aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
                   <X className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -112,7 +115,7 @@ const SimpleNavigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-slate-200">
+          <div id="mobile-menu" className="md:hidden bg-white border-t border-slate-200">
             <div className="px-3 sm:px-4 py-2 space-y-1">
               {navItems.map((item) => (
                 <button
