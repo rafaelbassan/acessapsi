@@ -1,16 +1,44 @@
 import { NextRequest, NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
 export async function GET(request: NextRequest) {
   try {
     // Basic health check - you can add more comprehensive checks here
     // For example: database connectivity, external services, etc.
 
-    return NextResponse.json({
+    // Check if build artifacts exist
+    const buildManifest = path.join(process.cwd(), '.next', 'build-manifest.json')
+    const hasBuildManifest = fs.existsSync(buildManifest)
+    
+    // Check static files
+    const staticDir = path.join(process.cwd(), '.next', 'static')
+    const hasStaticDir = fs.existsSync(staticDir)
+    
+    let staticFilesCount = 0
+    if (hasStaticDir) {
+      try {
+        const files = fs.readdirSync(staticDir, { recursive: true })
+        staticFilesCount = files.length
+      } catch (e) {
+        // Ignore errors counting files
+      }
+    }
+
+    const healthData = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
-      version: process.env.npm_package_version || '1.0.0'
-    }, {
+      version: process.env.npm_package_version || '1.0.0',
+      build: {
+        hasBuildManifest,
+        hasStaticDir,
+        staticFilesCount,
+        nodeEnv: process.env.NODE_ENV || 'development'
+      }
+    }
+
+    return NextResponse.json(healthData, {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
