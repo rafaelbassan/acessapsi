@@ -13,7 +13,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3000,
-        HOST: '0.0.0.0' // Importante para Docker - faz o Next.js escutar em todas as interfaces
+        HOSTNAME: '0.0.0.0' // Importante para Docker - faz o Next.js escutar em todas as interfaces
       },
       error_file: '../../logs/patient-web-error.log',
       out_file: '../../logs/patient-web-out.log',

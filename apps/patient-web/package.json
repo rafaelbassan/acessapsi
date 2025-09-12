@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run postbuild",
     "build:analyze": "ANALYZE=true next build",
-    "start": "HOST=0.0.0.0 node .next/standalone/apps/patient-web/server.js",
+    "postbuild": "node scripts/fix-standalone-hostname.js",
+    "start": "node .next/standalone/apps/patient-web/server.js",
     "start:dev": "next start -p 3000",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
